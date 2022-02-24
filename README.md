@@ -1,2 +1,2 @@
-<h1>Idle Planet</h1>
-<img src="/Idle-Planet/Planet1.jpg" alt="Alt text"/>
+# Idle Planet
+![](https://myoctocat.com/assets/images/base-octocat.svg)
