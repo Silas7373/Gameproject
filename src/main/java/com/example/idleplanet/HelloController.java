@@ -7,16 +7,18 @@ import javafx.scene.layout.GridPane;
 
 public class HelloController {
     @FXML
+    private Label welcomeText;
+    @FXML
     GridPane gridPane1;
     @FXML
     Button planet;
     @FXML
     Label points;
 
-    Currency currency;
+    Currency currency = new Currency(0);
     public void onButtonClick(){
     currency.setMoney(currency.money + currency.getPlanetstage());
-    points.setText(String.valueOf(currency.getMoney()));
+    points.setText(currency.getMoney());
     }
 
 

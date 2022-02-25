@@ -5,8 +5,10 @@ public class Currency {
     int[] lvlstage = new int[10];
     int[] planetstage = new int[10];
 
-    Currency(){
+    Currency(int money){
         planetstage[0] = 1;
+        this.money=money;
+
     }
 
     public int getPlanetstage() {
@@ -17,7 +19,7 @@ public class Currency {
         this.money = money;
     }
 
-    public int getMoney() {
-        return money;
+    public String getMoney() {
+        return Integer.toString(money);
     }
 }
