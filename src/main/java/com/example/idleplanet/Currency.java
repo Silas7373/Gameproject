@@ -18,6 +18,7 @@ public class Currency {
         this.money = money;
     }
 
+    public int getMoneyint(){return money;}
     public String getMoney() {
         return String.valueOf(money);
     }

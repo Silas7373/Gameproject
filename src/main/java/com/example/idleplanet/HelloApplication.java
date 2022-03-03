@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.util.TimerTask;
 
 
 public class HelloApplication extends Application {
@@ -25,8 +26,5 @@ public class HelloApplication extends Application {
 
 
     }
-    public static void Automatic() {
-        Timer timer = new Timer();
-        
-    }
+
 }
