@@ -10,6 +10,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 
+import javax.swing.*;
+import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -59,11 +61,49 @@ public class HelloController {
         });
     }
 
+    Timer timer;
+
     Currency currency = new Currency(0);
-    public void onButtonClick(){
-    currency.setMoney(currency.money + currency.getPlanetstage());
-    points.setText(currency.getMoney());
+    int currencyCounter = 0;
+    int geld = currency.getMoneyint();
+
+    public void onButtonClick() {
+        currency.setMoney(currency.money + currency.getPlanetstage());
+        points.setText(currency.getMoney());
+
     }
 
+    public void Start() {
+        setTimer();
+        timer.start();
 
+    }
+
+    /*public void Automatic(){
+        for(int i = 0; 1<3;i++){
+            currency.setMoney(currency.getMoneyint()+currency.getPlanetstage());
+            points.setText(currency.getMoney());
+
+        }
+    }*/
+    public void setTimer() {
+        currencyCounter = currency.getMoneyint();
+
+
+        timer = new Timer(1000, new ActionListener() {
+
+
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                currencyCounter += 1;
+                points.setText(String.valueOf(currencyCounter));
+
+            }
+        });
+
+
+    }
+
+    public void Automatic(javafx.event.ActionEvent actionEvent) {
+    }
 }
