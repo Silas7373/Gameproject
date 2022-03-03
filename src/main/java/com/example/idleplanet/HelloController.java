@@ -43,6 +43,7 @@ public class HelloController {
            gridPane1.setTranslateX(0);
 
 
+
        });
 
         menuExit.setOnMouseClicked(event -> {

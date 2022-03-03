@@ -51,7 +51,7 @@
             </AnchorPane>
          </left>
          <center>
-            <GridPane fx:id="gridPane1" prefHeight="366.0" prefWidth="429.0" BorderPane.alignment="CENTER">
+            <GridPane fx:id="gridPane1" prefHeight="366.0" prefWidth="429.0" stylesheets="@Style.css" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -64,7 +64,7 @@
               </rowConstraints>
                <children>
                   <Button fx:id="planet" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="130.0" prefWidth="151.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label fx:id="points" GridPane.columnIndex="1" />
+                  <Label fx:id="points" textFill="WHITE" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </center>
