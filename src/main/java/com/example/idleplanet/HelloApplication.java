@@ -1,11 +1,13 @@
 package com.example.idleplanet;
-
+import java.util.Timer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 import java.io.IOException;
+
 
 public class HelloApplication extends Application {
     @Override
@@ -15,11 +17,16 @@ public class HelloApplication extends Application {
         stage.setTitle("PlanetClicker!");
         stage.setScene(scene);
         stage.show();
+
 }
 
     public static void main(String[] args) {
         launch();
 
 
+    }
+    public static void Automatic() {
+        Timer timer = new Timer();
+        
     }
 }
