@@ -15,6 +15,8 @@ public class HelloController {
     @FXML
     Label points;
 
+
+
     Currency currency = new Currency(0);
     public void onButtonClick(){
     currency.setMoney(currency.money + currency.getPlanetstage());

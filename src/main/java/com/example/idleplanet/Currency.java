@@ -7,8 +7,7 @@ public class Currency {
 
     Currency(int money){
         planetstage[0] = 1;
-        this.money=money;
-
+        this.money = money;
     }
 
     public int getPlanetstage() {
@@ -20,6 +19,6 @@ public class Currency {
     }
 
     public String getMoney() {
-        return Integer.toString(money);
+        return String.valueOf(money);
     }
 }

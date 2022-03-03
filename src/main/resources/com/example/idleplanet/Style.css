@@ -1,0 +1,12 @@
+.button {
+    -fx-background-image: url("Planet2.png");
+    -fx-pref-height: 200px;
+    -fx-pref-width: 200px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+
+}
+
+#gridPane1{
+    -fx-background-position: center center;
+}
