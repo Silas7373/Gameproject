@@ -10,28 +10,33 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.idleplanet.HelloController">
+<AnchorPane fx:id="basePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.idleplanet.HelloController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane prefHeight="16.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
                   <HBox layoutX="5.0" layoutY="2.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <Label fx:id="upgradeMenu" layoutX="14.0" layoutY="7.0" text="Upgrades">
-                     <font>
-                        <Font name="72 Monospace Bold" size="16.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@upgrade.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Label>
+                  <StackPane fx:id="myStackPane" layoutX="-37.0" layoutY="-50.0" maxWidth="165.6" minWidth="165.6" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="upgradeMenu" prefHeight="46.0" prefWidth="166.0" stylesheets="@Style.css" text="Upgrades">
+                           <font>
+                              <Font name="72 Monospace Bold" size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@upgrade.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </children>
+                  </StackPane>
                </children>
             </AnchorPane>
          </top>
