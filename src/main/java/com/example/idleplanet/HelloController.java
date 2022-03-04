@@ -1,6 +1,7 @@
 package com.example.idleplanet;
 
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,10 +11,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 
-import javax.swing.*;
-import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class HelloController {
     @FXML
@@ -76,7 +77,7 @@ public class HelloController {
 
     public void Start() {
         setTimer();
-        timer.start();
+
 
     }
 
@@ -90,20 +91,25 @@ public class HelloController {
     public void setTimer() {
         currencyCounter = currency.getMoneyint();
 
-
-        timer = new Timer(1000, new ActionListener() {
-
-
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
             @Override
-            public void actionPerformed(java.awt.event.ActionEvent e) {
-                currencyCounter += 1;
-                points.setText(String.valueOf(currencyCounter));
-
+            public void run() {
+                currency.setMoney(currency.getMoneyint() + 1);
+                update(currency.getMoneyint());
             }
-        });
+        },0,1000);
 
 
     }
+
+    public void update(int value) {
+        Platform.runLater(() -> {
+            points.setText(String.valueOf(value));
+
+        });
+    }
+
 
     public void Automatic(javafx.event.ActionEvent actionEvent) {
     }
