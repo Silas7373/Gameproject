@@ -1,4 +1,4 @@
-.button {
+/*.button {
     -fx-background-image: url("Planet2.png");
     -fx-pref-height: 200px;
     -fx-pref-width: 200px;
@@ -6,7 +6,8 @@
     -fx-background-position: center;
 
 }
-
+*/
 #gridPane1{
-    -fx-background-position: center center;
+    -fx-background-image: url("background.png");
+    -fx-background-size: cover;
 }
