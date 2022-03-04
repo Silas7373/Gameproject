@@ -7,7 +7,11 @@
 
 }
 */
-#gridPane1{
+#basePane{
     -fx-background-image: url("background.png");
     -fx-background-size: cover;
+}
+
+#myStackPane{
+    -fx-background-color: white;
 }

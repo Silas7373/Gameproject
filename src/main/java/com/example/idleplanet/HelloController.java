@@ -7,8 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.*;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -29,11 +28,17 @@ public class HelloController {
     Label menuExit;
     @FXML
     Label upgradeMenu;
+    @FXML
+    AnchorPane basePane;
+    @FXML
+    StackPane myStackPane;
+
 
     @FXML
     public void initialize() {
-        slider.setTranslateX(-165);
+        slider.setTranslateX(-165.6);
         gridPane1.setTranslateX(-80);
+
 
        upgradeMenu.setOnMouseClicked(event -> {
            TranslateTransition slide = new TranslateTransition();
@@ -42,7 +47,7 @@ public class HelloController {
            slide.setToX(0);
            slide.play();
 
-           slider.setTranslateX(-165);
+           slider.setTranslateX(-165.6);
            gridPane1.setTranslateX(0);
 
 
@@ -53,7 +58,7 @@ public class HelloController {
             TranslateTransition slide = new TranslateTransition();
             slide.setDuration(Duration.seconds(0.4));
             slide.setNode(slider);
-            slide.setToX(-165);
+            slide.setToX(-165.6);
             slide.play();
 
             slider.setTranslateX(0);

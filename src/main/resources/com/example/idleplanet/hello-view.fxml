@@ -45,7 +45,7 @@
                <children>
                   <VBox layoutX="23.0" layoutY="26.0" prefHeight="340.0" prefWidth="165.0" style="-fx-background-color: #41385F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="165.6" text="Button" />
+                        <Button mnemonicParsing="false" onAction="#setTimer" prefHeight="35.0" prefWidth="165.6" text="Button" />
                         <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="165.6" text="Button" />
                         <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="165.6" text="Button" />
                         <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="165.6" text="Button" />
