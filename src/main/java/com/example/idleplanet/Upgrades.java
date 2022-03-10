@@ -26,7 +26,7 @@ public class Upgrades {
     public double getUpgrades4() {
         return upgrades4;
     }
-    public void setUpgrades1() {
+    public void setUpgrades1(double v) {
         upgrades1 += 0.001;
     }
     public void setUpgrades2() {

@@ -95,7 +95,7 @@ public class HelloController {
         else {
             if (upgrades.getUpgradelvl() < 0.099){
                 upgrades.setUpgradelvl();
-                //upgrades.setUpgrades1(upgrades.getUpgrades1() + upgrades.getUpgradelvl());
+                upgrades.setUpgrades1(upgrades.getUpgrades1() + upgrades.getUpgradelvl());
             }
         }
     }
