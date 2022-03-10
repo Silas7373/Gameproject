@@ -2,10 +2,10 @@ package com.example.idleplanet;
 
 public class Upgrades {
 
-    double upgrades1 = 0.001;
-    double upgrades2 = 0.01;
-    double upgrades3 = 0.1;
-    double upgrades4 = 1;
+    double upgrades1 = 0;
+    double upgrades2 = 0;
+    double upgrades3 = 0;
+    double upgrades4 = 0;
     double upgradelvl = 0;
 
     public double getUpgradelvl() {
