@@ -92,10 +92,11 @@ public class HelloController {
             },0,1);
             bool = false;
         }
-        else {
-            if (upgrades.getUpgradelvl() < 0.099){
-                upgrades.setUpgradelvl();
-                upgrades.setUpgrades1(upgrades.getUpgrades1() + upgrades.getUpgradelvl());
+        else{
+
+            if (upgrades.getUpgradelvl1() < 0.099 ){
+                upgrades.setUpgradelvl1();
+                upgrades.setUpgrades1(upgrades.getUpgrades1() + upgrades.getUpgradelvl1());
             }
         }
     }
