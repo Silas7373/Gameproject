@@ -1,0 +1,16 @@
+.button{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-background-color:#282828;
+}
+
+#menuExit {
+    -fx-text-fill: #848080;
+}
+
+#menuExit:hover{
+    -fx-text-fill: #a4a2a2;
+}

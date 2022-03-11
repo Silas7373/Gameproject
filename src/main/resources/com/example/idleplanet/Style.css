@@ -15,3 +15,13 @@
 #myStackPane{
     -fx-background-color: white;
 }
+
+#slider{
+    -fx-background-radius: 0px 15px 15px 0px;
+    -fx-border-radius: 0px 15px 15px 0px;
+}
+
+#vbox{
+    -fx-background-radius: 0px 0px 15px 0px;
+    -fx-border-radius: 0px 0px 15px 0px;
+}

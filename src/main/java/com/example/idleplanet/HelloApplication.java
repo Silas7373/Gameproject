@@ -3,6 +3,7 @@ import java.util.Timer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -16,6 +17,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view2.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("PlanetClicker!");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("planet.png")));
         stage.setScene(scene);
         stage.show();
 

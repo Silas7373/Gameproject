@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 import java.text.DecimalFormat;
@@ -24,7 +25,7 @@ public class StartController {
     @FXML
     AnchorPane slider;
     @FXML
-    Label menuExit;
+    Button menuExit;
     @FXML
     Label upgradeMenu;
     @FXML
@@ -33,7 +34,8 @@ public class StartController {
     StackPane myStackPane;
     @FXML
     Button button1;
-
+    @FXML
+    VBox vbox;
 
     @FXML
     public void initialize() {
@@ -76,11 +78,11 @@ public class StartController {
     public static int lol = 0;
     boolean bool = true;
     Upgrades upgrades = new Upgrades();
-    private static final DecimalFormat df = new DecimalFormat("0.000");
+    private static final DecimalFormat df = new DecimalFormat("0");
 
     public void onButtonClick() {
         currency.setMoney(currency.money + currency.getPlanetstage());
-        points.setText(currency.getMoney());
+        points.setText(String.valueOf(df.format(currency.getMoneyint())));
     }
     public void Autoclick1() {
         if (bool){

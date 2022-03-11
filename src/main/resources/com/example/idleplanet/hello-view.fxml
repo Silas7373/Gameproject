@@ -21,37 +21,86 @@
                 <AnchorPane prefHeight="16.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                     <children>
                         <HBox layoutX="5.0" layoutY="2.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <StackPane fx:id="myStackPane" layoutX="-37.0" layoutY="-50.0" maxWidth="165.6" minWidth="165.6" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                            <children>
-                                <Label fx:id="upgradeMenu" alignment="CENTER" prefHeight="46.0" prefWidth="166.0" stylesheets="@Style.css" text="Upgrades">
+                        <StackPane fx:id="myStackPane" layoutX="-37.0" layoutY="-50.0" maxWidth="165.6" minWidth="56.0" prefHeight="34.0" prefWidth="56.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                                <Label fx:id="upgradeMenu" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="29.0" style="-fx-background-color: black;" stylesheets="@Style.css">
                                     <font>
                                         <Font name="72 Monospace Bold" size="16.0" />
                                     </font>
-                                    <graphic>
-                                        <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@upgrade.png" />
-                                            </image>
-                                        </ImageView>
-                                    </graphic>
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@menu_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                                 </Label>
-                            </children>
+                     </children>
                         </StackPane>
                     </children>
                 </AnchorPane>
             </top>
             <left>
-                <AnchorPane fx:id="slider" prefHeight="340.0" prefWidth="165.0" style="-fx-background-color: #41385F;" BorderPane.alignment="CENTER">
+                <AnchorPane fx:id="slider" prefHeight="365.0" prefWidth="166.0" style="-fx-background-color: #1e1e1e;" BorderPane.alignment="CENTER">
                     <children>
-                        <VBox layoutX="23.0" layoutY="26.0" prefHeight="340.0" prefWidth="165.0" style="-fx-background-color: #41385F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+                        <VBox fx:id="vbox" layoutX="23.0" layoutY="26.0" prefHeight="340.0" prefWidth="165.0" style="-fx-background-color: #1e1e1e;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
                             <children>
-                                <Button mnemonicParsing="false" onAction="#Autoclick1" prefHeight="35.0" prefWidth="165.6" text="Button" />
-                                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="165.6" text="Button" />
-                                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="165.6" text="Button" />
-                                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="165.6" text="Button" />
+                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Autoclick1" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@upgrade_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="OCR A Extended" size="13.0" />
+                           </font></Button>
+                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@upgrade_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="OCR A Extended" size="13.0" />
+                           </font></Button>
+                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@upgrade_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="OCR A Extended" size="13.0" />
+                           </font></Button>
+                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@upgrade_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="OCR A Extended" size="13.0" />
+                           </font></Button>
                             </children>
                         </VBox>
-                        <Label fx:id="menuExit" layoutX="132.0" layoutY="5.0" text="Exit" textFill="#868686" />
+                  <Label layoutX="3.0" layoutY="5.0" prefHeight="18.0" prefWidth="106.0" text="Upgrade Menu" textFill="WHITE">
+                     <font>
+                        <Font name="OCR A Extended" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="menuExit" layoutX="138.0" layoutY="3.0" mnemonicParsing="false" style="-fx-background-color: transparent;" stylesheets="@buttonSlider.css" text="Exit" textFill="#848080">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
                     </children>
                 </AnchorPane>
             </left>
