@@ -5,6 +5,8 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -12,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -33,12 +36,29 @@ public class StartController {
     @FXML
     StackPane myStackPane;
     @FXML
-    Button button1;
-    @FXML
     VBox vbox;
+    @FXML
+    ImageView myimageView;
+    @FXML
+    ImageView planetImage;
+    int index = 0;
+
+    ArrayList<Image> imagelist = new ArrayList<Image>();
+
+    Image planet1 = new Image(getClass().getResourceAsStream("planet.png"));
+    Image planet1_grey = new Image(getClass().getResourceAsStream("planet_grey.png"));
+    Image planet2 = new Image(getClass().getResourceAsStream("planet2.png"));
+    Image planet2_grey = new Image(getClass().getResourceAsStream("planet2_grey.png"));
+
+
 
     @FXML
     public void initialize() {
+        imagelist.add(planet1);
+        imagelist.add(planet1_grey);
+        imagelist.add(planet2);
+        imagelist.add(planet2_grey);
+
         slider.setTranslateX(-165.6);
         gridPane1.setTranslateX(-80);
 
@@ -53,8 +73,14 @@ public class StartController {
             slider.setTranslateX(-165.6);
             gridPane1.setTranslateX(0);
 
+        });
 
+        upgradeMenu.setOnMousePressed(event -> {
+            myimageView.setImage(new Image(getClass().getResourceAsStream("menu_icon_grey.png")));
+        });
 
+        upgradeMenu.setOnMouseReleased(event -> {
+            myimageView.setImage(new Image(getClass().getResourceAsStream("menu_icon.png")));
         });
 
         menuExit.setOnMouseClicked(event -> {
@@ -69,6 +95,31 @@ public class StartController {
 
 
         });
+    }
+
+    public void buttonClicked(){
+
+        planetImage.setImage(imagelist.get(index+1));
+        planetImage.setFitHeight(130);
+        planetImage.setFitWidth(151);
+    }
+
+
+   public void buttonReleased(){
+
+           planetImage.setImage(imagelist.get(index));
+           planetImage.setFitHeight(128);
+           planetImage.setFitWidth(149);
+
+    }
+
+    public void nextPlanet(){
+        if(index+2 < imagelist.size()) {
+            index = index + 2;
+            planetImage.setImage(imagelist.get(index));
+            planetImage.setFitHeight(128);
+            planetImage.setFitWidth(149);
+        }
     }
 
     Timer timer;
@@ -109,4 +160,8 @@ public class StartController {
             points.setText(String.valueOf(df.format(value)));
         });
     }
+
+
 }
+
+

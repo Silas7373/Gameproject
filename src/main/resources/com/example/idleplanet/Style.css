@@ -25,3 +25,12 @@
     -fx-background-radius: 0px 0px 15px 0px;
     -fx-border-radius: 0px 0px 15px 0px;
 }
+
+#planet{
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-background-color: transparent;
+}
+
+
+

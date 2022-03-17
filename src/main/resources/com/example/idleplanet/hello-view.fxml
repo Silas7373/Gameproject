@@ -23,12 +23,12 @@
                         <HBox layoutX="5.0" layoutY="2.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         <StackPane fx:id="myStackPane" layoutX="-37.0" layoutY="-50.0" maxWidth="165.6" minWidth="56.0" prefHeight="34.0" prefWidth="56.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                                <Label fx:id="upgradeMenu" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="29.0" style="-fx-background-color: black;" stylesheets="@Style.css">
+                                <Label fx:id="upgradeMenu" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="29.0" style="-fx-background-color: transparent;" stylesheets="@Style.css">
                                     <font>
                                         <Font name="72 Monospace Bold" size="16.0" />
                                     </font>
                            <graphic>
-                              <ImageView fitHeight="28.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="myimageView" fitHeight="28.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@menu_icon.png" />
                                  </image>
@@ -45,7 +45,7 @@
                     <children>
                         <VBox fx:id="vbox" layoutX="23.0" layoutY="26.0" prefHeight="340.0" prefWidth="165.0" style="-fx-background-color: #1e1e1e;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
                             <children>
-                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Autoclick1" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="Button">
+                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Autoclick1" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="Autoclick">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -78,7 +78,7 @@
                            <font>
                               <Font name="OCR A Extended" size="13.0" />
                            </font></Button>
-                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="Button">
+                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#nextPlanet" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="Planet">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -96,9 +96,9 @@
                         <Font name="OCR A Extended" size="14.0" />
                      </font>
                   </Label>
-                  <Button fx:id="menuExit" layoutX="138.0" layoutY="3.0" mnemonicParsing="false" style="-fx-background-color: transparent;" stylesheets="@buttonSlider.css" text="Exit" textFill="#848080">
+                  <Button fx:id="menuExit" alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" layoutY="6.0" maxHeight="15.0" maxWidth="15.0" minHeight="15.0" minWidth="15.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="18.0" stylesheets="@buttonSlider.css" text="x" textFill="#848080">
                      <font>
-                        <Font size="10.0" />
+                        <Font name="72" size="8.0" />
                      </font>
                   </Button>
                     </children>
@@ -117,12 +117,12 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <ImageView fx:id="planetImage" fitHeight="128.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                             <image>
                                 <Image url="@planet.png" />
                             </image>
                         </ImageView>
-                        <Button fx:id="planet" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="138.0" prefWidth="130.0" style="-fx-background-color: transparent;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="planet" mnemonicParsing="false" onAction="#onButtonClick" onMousePressed="#buttonClicked" onMouseReleased="#buttonReleased" prefHeight="149.0" prefWidth="130.0" stylesheets="@Style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label fx:id="points" textFill="WHITE" GridPane.columnIndex="1" />
                     </children>
                 </GridPane>

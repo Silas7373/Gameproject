@@ -9,8 +9,11 @@
 
 #menuExit {
     -fx-text-fill: #848080;
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%;
 }
 
 #menuExit:hover{
-    -fx-text-fill: #a4a2a2;
+    -fx-background-color: #282828;
+    -fx-border-color: #282828;
 }
