@@ -32,5 +32,19 @@
     -fx-background-color: transparent;
 }
 
+#startContainer{
+    -fx-background-image: url("background.png");
+    -fx-background-size: cover;
+}
 
+#startButton{
+    -fx-background-color: black;
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+}
+
+#startButton:hover{
+    -fx-text-fill: #acacac;
+}
 

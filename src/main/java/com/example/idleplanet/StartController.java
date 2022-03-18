@@ -2,6 +2,7 @@ package com.example.idleplanet;
 
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -28,7 +29,7 @@ public class StartController {
     @FXML
     AnchorPane slider;
     @FXML
-    Button menuExit;
+    Label menuExit;
     @FXML
     Label upgradeMenu;
     @FXML
@@ -40,7 +41,18 @@ public class StartController {
     @FXML
     ImageView myimageView;
     @FXML
+    ImageView myimageView1;
+    @FXML
     ImageView planetImage;
+    @FXML
+    Button b1;
+    @FXML
+    Button b2;
+    @FXML
+    Button b3;
+    @FXML
+    Button b4;
+
     int index = 0;
 
     ArrayList<Image> imagelist = new ArrayList<Image>();
@@ -73,7 +85,29 @@ public class StartController {
             slider.setTranslateX(-165.6);
             gridPane1.setTranslateX(0);
 
+            slide.setOnFinished((ActionEvent e) -> {
+                upgradeMenu.setVisible(false);
+                menuExit.setVisible(true);
+            });
         });
+
+
+            menuExit.setOnMouseClicked(event -> {
+                TranslateTransition slide = new TranslateTransition();
+                slide.setDuration(Duration.seconds(0.4));
+                slide.setNode(slider);
+                slide.setToX(-165.6);
+                slide.play();
+
+                slider.setTranslateX(0);
+                gridPane1.setTranslateX(-80);
+
+                slide.setOnFinished((ActionEvent e) -> {
+                    upgradeMenu.setVisible(true);
+                    menuExit.setVisible(false);
+                });
+            });
+
 
         upgradeMenu.setOnMousePressed(event -> {
             myimageView.setImage(new Image(getClass().getResourceAsStream("menu_icon_grey.png")));
@@ -83,18 +117,14 @@ public class StartController {
             myimageView.setImage(new Image(getClass().getResourceAsStream("menu_icon.png")));
         });
 
-        menuExit.setOnMouseClicked(event -> {
-            TranslateTransition slide = new TranslateTransition();
-            slide.setDuration(Duration.seconds(0.4));
-            slide.setNode(slider);
-            slide.setToX(-165.6);
-            slide.play();
-
-            slider.setTranslateX(0);
-            gridPane1.setTranslateX(-80);
-
-
+        menuExit.setOnMousePressed(event -> {
+            myimageView1.setImage(new Image(getClass().getResourceAsStream("menu_icon_grey.png")));
         });
+
+        menuExit.setOnMouseReleased(event -> {
+            myimageView1.setImage(new Image(getClass().getResourceAsStream("menu_icon.png")));
+        });
+
     }
 
     public void buttonClicked(){
