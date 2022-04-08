@@ -12,7 +12,6 @@ public class Currency {
     }
 
 
-
     public double getPlanetstage() {
         return planetstage[0];
     }

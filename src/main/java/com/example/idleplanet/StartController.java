@@ -52,30 +52,26 @@ public class StartController {
     Button b3;
     @FXML
     Button b4;
+    @FXML
+    VBox infoContainer;
+    @FXML
+    Label infoText;
 
+
+    int check;
     int index = 0;
+    boolean menuSwitch = true;
 
     ArrayList<Image> imagelist = new ArrayList<Image>();
-
-    Image planet1 = new Image(getClass().getResourceAsStream("planet.png"));
-    Image planet1_grey = new Image(getClass().getResourceAsStream("planet_grey.png"));
-    Image planet2 = new Image(getClass().getResourceAsStream("planet2.png"));
-    Image planet2_grey = new Image(getClass().getResourceAsStream("planet2_grey.png"));
+    PlanetAnimation pAnimation = new PlanetAnimation();
 
 
-
-    @FXML
-    public void initialize() {
-        imagelist.add(planet1);
-        imagelist.add(planet1_grey);
-        imagelist.add(planet2);
-        imagelist.add(planet2_grey);
-
+    public void openMenu(){
+        infoContainer.setTranslateY(250);
         slider.setTranslateX(-165.6);
         gridPane1.setTranslateX(-80);
 
-
-        upgradeMenu.setOnMouseClicked(event -> {
+        if(menuSwitch == true) {
             TranslateTransition slide = new TranslateTransition();
             slide.setDuration(Duration.seconds(0.4));
             slide.setNode(slider);
@@ -84,63 +80,46 @@ public class StartController {
 
             slider.setTranslateX(-165.6);
             gridPane1.setTranslateX(0);
+            menuSwitch = false;
+        }
+        else if (menuSwitch == false)
+        {
+            TranslateTransition slide = new TranslateTransition();
+            slide.setDuration(Duration.seconds(0.4));
+            slide.setNode(slider);
+            slide.setToX(-165.6);
+            slide.play();
 
-            slide.setOnFinished((ActionEvent e) -> {
-                upgradeMenu.setVisible(false);
-                menuExit.setVisible(true);
-            });
-        });
-
-
-            menuExit.setOnMouseClicked(event -> {
-                TranslateTransition slide = new TranslateTransition();
-                slide.setDuration(Duration.seconds(0.4));
-                slide.setNode(slider);
-                slide.setToX(-165.6);
-                slide.play();
-
-                slider.setTranslateX(0);
-                gridPane1.setTranslateX(-80);
-
-                slide.setOnFinished((ActionEvent e) -> {
-                    upgradeMenu.setVisible(true);
-                    menuExit.setVisible(false);
-                });
-            });
-
-
-        upgradeMenu.setOnMousePressed(event -> {
-            myimageView.setImage(new Image(getClass().getResourceAsStream("menu_icon_grey.png")));
-        });
-
-        upgradeMenu.setOnMouseReleased(event -> {
-            myimageView.setImage(new Image(getClass().getResourceAsStream("menu_icon.png")));
-        });
-
-        menuExit.setOnMousePressed(event -> {
-            myimageView1.setImage(new Image(getClass().getResourceAsStream("menu_icon_grey.png")));
-        });
-
-        menuExit.setOnMouseReleased(event -> {
-            myimageView1.setImage(new Image(getClass().getResourceAsStream("menu_icon.png")));
-        });
-
+            slider.setTranslateX(0);
+            gridPane1.setTranslateX(-80);
+            menuSwitch = true;
+        }
     }
 
-    public void buttonClicked(){
 
-        planetImage.setImage(imagelist.get(index+1));
-        planetImage.setFitHeight(130);
-        planetImage.setFitWidth(151);
+    public void buttonClicked(){
+        pAnimation.planetClicked(planetImage);
     }
 
 
    public void buttonReleased(){
+           pAnimation.planetReleased(planetImage);
+    }
 
-           planetImage.setImage(imagelist.get(index));
-           planetImage.setFitHeight(128);
-           planetImage.setFitWidth(149);
+    public void menuPressed(){
+        myimageView.setImage(new Image(getClass().getResourceAsStream("menu_icon_grey.png")));
+    }
 
+    public void menuReleased(){
+        myimageView.setImage(new Image(getClass().getResourceAsStream("menu_icon.png")));
+    }
+
+    public void menuExitPressed(){
+        myimageView1.setImage(new Image(getClass().getResourceAsStream("menu_icon_grey.png")));
+    }
+
+    public void menuExitReleased(){
+        myimageView1.setImage(new Image(getClass().getResourceAsStream("menu_icon.png")));
     }
 
     public void nextPlanet(){
@@ -149,8 +128,65 @@ public class StartController {
             planetImage.setImage(imagelist.get(index));
             planetImage.setFitHeight(128);
             planetImage.setFitWidth(149);
+
         }
     }
+
+    public void btn1(){
+        check = 1;
+        openInfo(check);
+    }
+
+    public void btn2(){
+        check = 2;
+        openInfo(check);
+    }
+
+    public void btn3(){
+        check = 3;
+        openInfo(check);
+    }
+
+    public void btn4(){
+        check = 4;
+        openInfo(check);
+    }
+
+    public void openInfo(int b){
+        if (b == 1)
+        {
+            infoText.setText("Mit diesem Upgrade\nwird automatisch für\ndich geclickt.");
+        }
+        else if (b == 2)
+        {
+            infoText.setText("upgrade");
+        }
+        else if (b == 3)
+        {
+            infoText.setText("");
+        }
+        else if (b == 4)
+        {
+            infoText.setText("Wenn du dieses \nUpgrade kaufst, \nbekommst du einen \nneuen Planeten.");
+        }
+
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.3));
+        slide.setNode(infoContainer);
+        slide.setToY(0);
+        slide.play();
+        infoContainer.setTranslateY(0);
+    }
+
+    public void closeInfo(){
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.3));
+        slide.setNode(infoContainer);
+        slide.setToY(122.4);
+        slide.play();
+        infoContainer.setTranslateY(122.4);
+    }
+
 
     Timer timer;
 
@@ -190,8 +226,6 @@ public class StartController {
             points.setText(String.valueOf(df.format(value)));
         });
     }
-
-
 }
 
 
