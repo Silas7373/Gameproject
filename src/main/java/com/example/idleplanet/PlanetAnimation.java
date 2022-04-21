@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
-public class PlanetAnimation extends Animation{
+public class PlanetAnimation{
 
 
     ArrayList<Image> imagelist = new ArrayList<Image>();

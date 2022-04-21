@@ -18,13 +18,6 @@ public class HelloController{
     @FXML
     GridPane startContainer;
 
-
-    @FXML
-    public void initialize() {
-
-    }
-
-
     public void startGame(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
