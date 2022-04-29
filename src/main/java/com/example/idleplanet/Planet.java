@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
-public class PlanetAnimation{
+public class Planet {
 
 
     ArrayList<Image> imagelist = new ArrayList<Image>();
@@ -16,7 +16,7 @@ public class PlanetAnimation{
     Image planet2 = new Image(getClass().getResourceAsStream("planet2.png"));
     Image planet2_grey = new Image(getClass().getResourceAsStream("planet2_grey.png"));
 
-    PlanetAnimation(){
+    Planet(){
         imagelist.add(planet1);
         imagelist.add(planet1_grey);
         imagelist.add(planet2);

@@ -23,18 +23,6 @@
                         <HBox layoutX="5.0" layoutY="2.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         <StackPane fx:id="myStackPane" layoutX="-37.0" layoutY="-50.0" maxWidth="165.6" minWidth="56.0" prefHeight="34.0" prefWidth="56.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label fx:id="menuExit" alignment="TOP_LEFT" onMousePressed="#menuExitPressed" onMouseReleased="#menuExitReleased" prefHeight="24.0" prefWidth="29.0" style="-fx-background-color: transparent;" stylesheets="@Style.css">
-                           <font>
-                              <Font name="72 Monospace Bold" size="16.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fx:id="myimageView1" fitHeight="28.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@menu_icon.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Label>
                                 <Label fx:id="upgradeMenu" alignment="TOP_LEFT" onMouseClicked="#openMenu" onMousePressed="#menuPressed" onMouseReleased="#menuReleased" prefHeight="24.0" prefWidth="29.0" style="-fx-background-color: transparent;" stylesheets="@Style.css">
                                     <font>
                                         <Font name="72 Monospace Bold" size="16.0" />
@@ -57,7 +45,7 @@
                     <children>
                         <VBox fx:id="vbox" layoutX="23.0" layoutY="26.0" prefHeight="145.0" prefWidth="166.0" style="-fx-background-color: #1e1e1e;" AnchorPane.bottomAnchor="181.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
                             <children>
-                                <Button fx:id="b1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Autoclick1" onMouseEntered="#btn1" onMouseExited="#closeInfo" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="Autoclick" textFill="#999999">
+                                <Button fx:id="b1" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseEntered="#btn1" onMouseExited="#closeInfo" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="Autoclick" textFill="#999999">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -129,7 +117,7 @@
                                 <Image url="@planet.png" />
                             </image>
                         </ImageView>
-                        <Button fx:id="planet" mnemonicParsing="false" onAction="#onButtonClick" onMousePressed="#buttonClicked" onMouseReleased="#buttonReleased" prefHeight="149.0" prefWidth="130.0" stylesheets="@Style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="planet" mnemonicParsing="false" onMousePressed="#buttonClicked" onMouseReleased="#buttonReleased" prefHeight="149.0" prefWidth="130.0" stylesheets="@Style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label fx:id="points" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                      <font>
                         <Font name="OCR A Extended" size="36.0" />
