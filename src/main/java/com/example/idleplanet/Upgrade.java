@@ -23,6 +23,13 @@ abstract class Upgrade {
         }
     }       //currency.getMoneyInt übergeben
 
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
+    public void setPlusMoney(double plusMoney) {
+        this.plusMoney = plusMoney;
+    }
     /*double upgrades1 = 0;
     double upgrades2 = 0;
     double upgrades3 = 0;

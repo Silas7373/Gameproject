@@ -1,5 +1,6 @@
 package com.example.idleplanet;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,8 +11,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Timer;
+import java.util.TimerTask;
 
 public class StartController {
     @FXML
@@ -19,7 +22,7 @@ public class StartController {
     @FXML
     Button planet;
     @FXML
-    Label points;
+    public Label points;
     @FXML
     AnchorPane slider;
     @FXML
@@ -50,9 +53,9 @@ public class StartController {
     int index = 0;
 
     ArrayList<Image> imagelist = new ArrayList<Image>();
-    Planet pAnimation = new Planet();
+    Planet p = new Planet();
     MenuAnimation mAnimation = new MenuAnimation();
-
+    private static final DecimalFormat df = new DecimalFormat("0");
     @FXML
     public void initialize() {
         mAnimation.openMenu(slider, gridPane1);
@@ -65,11 +68,11 @@ public class StartController {
     }
 
     public void buttonClicked(){
-        pAnimation.planetClicked(planetImage);
+        p.planetClicked(planetImage);
     }
 
    public void buttonReleased(){
-           pAnimation.planetReleased(planetImage);
+           p.planetReleased(planetImage);
     }
 
 
@@ -119,45 +122,41 @@ public class StartController {
     }
 
 
-    Timer timer;
+
 /*
-    Currency currency = new Currency(0);
+
     double geld = currency.getMoneyint();
     public static int lol = 0;
     boolean bool = true;
     Upgrades upgrades = new Upgrades();
-    private static final DecimalFormat df = new DecimalFormat("0");
+
 
     public void onButtonClick() {
         currency.setMoney(currency.money + currency.getPlanetstage());
         points.setText(String.valueOf(df.format(currency.getMoneyint())));
     }
+
+    */
     public void Autoclick1() {
-        if (bool){
-            timer = new Timer();
+
+        Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    currency.setMoney(currency.getMoneyint()+ upgrades.getUpgrades1()+upgrades.getUpgrades2() + upgrades.getUpgrades3() + upgrades.getUpgrades4());
-                    update(currency.getMoneyint());
+
+                    update(p.getMoney());
                 }
             },0,1);
-            bool = false;
-        }
-        else{
 
-            if (upgrades.getUpgradelvl1() < 0.099 ){
-                upgrades.setUpgradelvl1();
-                upgrades.setUpgrades1(upgrades.getUpgrades1() + upgrades.getUpgradelvl1());
-            }
-        }
+
+
+
     }
     public void update(double value) {
         Platform.runLater(() -> {
             points.setText(String.valueOf(df.format(value)));
         });
     }
-    */
 }
 
 
