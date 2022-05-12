@@ -1,9 +1,6 @@
 package com.example.idleplanet;
-
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
