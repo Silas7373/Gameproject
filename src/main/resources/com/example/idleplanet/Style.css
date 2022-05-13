@@ -53,3 +53,14 @@
 #infoText{
     -fx-text-fill: #7a7a7a;
 }
+
+#miniGame{
+    -fx-background-color:  #1e1e1e;
+    -fx-text-fill: #999999;
+    -fx-background-radius: 0px 0px 0px 10px;
+    -fx-border-radius: 0px 0px 0px 10px;
+}
+
+#miniGame:hover{
+    -fx-background-color:#282828;
+}

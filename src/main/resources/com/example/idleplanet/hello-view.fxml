@@ -37,6 +37,7 @@
                                 </Label>
                      </children>
                         </StackPane>
+                  <Button fx:id="miniGame" layoutX="529.0" layoutY="1.0" mnemonicParsing="false" onAction="#startGame" stylesheets="@Style.css" text="Mini Game" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                     </children>
                 </AnchorPane>
             </top>

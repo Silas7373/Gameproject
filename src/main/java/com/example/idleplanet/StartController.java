@@ -1,7 +1,12 @@
 package com.example.idleplanet;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -10,8 +15,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.EventObject;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -51,16 +60,23 @@ public class StartController {
 
     int index = 0;
 
+    MiniGame game = new MiniGame();
     ArrayList<Image> imagelist = new ArrayList<Image>();
     Planet p = new Planet();
     MenuAnimation mAnimation = new MenuAnimation();
     private static final DecimalFormat df = new DecimalFormat("0");
+
     @FXML
     public void initialize() {
         mAnimation.openMenu(slider, gridPane1);
         mAnimation.closeInfo(infoContainer);
         p.autoMoney();
         Autoclick1();
+    }
+
+    public void startGame(ActionEvent event) throws Exception {
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        game.start(stage);
     }
 
     public void openMenu(){
