@@ -59,18 +59,17 @@ public class StartController {
     public void initialize() {
         mAnimation.openMenu(slider, gridPane1);
         mAnimation.closeInfo(infoContainer);
+        p.autoMoney();
+        Autoclick1();
     }
-
 
     public void openMenu(){
         mAnimation.openMenu(slider, gridPane1);
     }
-
     public void buttonClicked(){
         p.planetClicked(planetImage);
     }
-
-   public void buttonReleased(){
+    public void buttonReleased(){
            p.planetReleased(planetImage);
     }
 
@@ -114,13 +113,13 @@ public class StartController {
         mAnimation.openInfo(4, infoText, infoContainer);
     }
 
-
-
     public void closeInfo(){
         mAnimation.closeInfo(infoContainer);
     }
 
-
+    public void buyUp(){
+        p.buyUpgrade();
+    }
 
 /*
 
@@ -142,19 +141,18 @@ public class StartController {
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-
                     update(p.getMoney());
                 }
             },0,1);
-
-
-
 
     }
     public void update(double value) {
         Platform.runLater(() -> {
             points.setText(String.valueOf(df.format(value)));
         });
+    }
+    public void onClick(){
+        p.click();
     }
 }
 

@@ -9,7 +9,7 @@ public class Planet {
 
 
     ArrayList<Image> imagelist = new ArrayList<Image>();
-    ArrayList<MoreCpC> moreCpCS = new ArrayList<>();
+    ArrayList<MoreCpC> moreCpS = new ArrayList<>();
     ArrayList<MineralMine> mineralMines = new ArrayList<>();
     ArrayList<Factory> factories = new ArrayList<>();
     ArrayList<AstronautBase> astronautBases = new ArrayList<>();
@@ -47,14 +47,19 @@ public class Planet {
     public double getMoney() {
         return currency.getMoneyint();
     }
-
+    public void click(){
+        currency.setMoney(currency.getMoneyint()+1);
+    }
     public void autoMoney() {
         if (bool){
             timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    currency.setMoney(currency.getMoneyint()+);
+                    for (int i = 0; i< moreCpS.size();i++){
+                        currency.setMoney(currency.getMoneyint() + moreCpS.get(i).getPlusMoney());
+                    }
+
                 }
             },0,1);
             bool = false;
@@ -63,15 +68,7 @@ public class Planet {
             }
         }
         public void buyUpgrade(){
-            for (int j = 0;j<=99;j++){
                 MoreCpC moreCpC1 = new MoreCpC();
-                moreCpCS.add(moreCpC1);
-                if (j == morecpccount){
-                    morecpccount++;
-                }
-            }
-            for (int i = 0; i< moreCpCS.size();i++){
-                morecps = morecps + moreCpCS.get(i);
-            }
+                moreCpS.add(moreCpC1);
         }
 }
