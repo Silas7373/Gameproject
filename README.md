@@ -7,7 +7,7 @@ In dem Spiel geht es um Planeten, von denen man durch Klicken eine Währung beko
 Das vorausichtliche Ziel ist, dieses Spiel auf eine Beta-Version mit nur wenigen, aber leicht erweiterbaren, Level und Upgrades. Außerdem sollen auch Animationen für die Planeten eingebaut werden. Es sollen verschiedenste Menüs geben z.B. in dem Planeten Upgrades gemacht weden können. 
 
 ### **Umsetzung**
-Dieses Projekt wird in Unity mit der Programmiersprache C# verfasst.
+Dieses Projekt wird in IntelliJ mit der Programmiersprache Java verfasst.
 
 
 ### **Projektmitglieder**
