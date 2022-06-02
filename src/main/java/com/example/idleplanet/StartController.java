@@ -128,11 +128,10 @@ public class StartController {
     }
 
     public void buyUp(){
-        p.buyUpgrade();
+        p.unlockUpgrade();
     }
 
 /*
-
     double geld = currency.getMoneyint();
     public static int lol = 0;
     boolean bool = true;
@@ -143,10 +142,8 @@ public class StartController {
         currency.setMoney(currency.money + currency.getPlanetstage());
         points.setText(String.valueOf(df.format(currency.getMoneyint())));
     }
-
     */
     public void Autoclick1() {
-
         Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override
@@ -154,7 +151,6 @@ public class StartController {
                     update(p.getMoney());
                 }
             },0,1);
-
     }
     public void update(double value) {
         Platform.runLater(() -> {
@@ -164,6 +160,7 @@ public class StartController {
     public void onClick(){
         p.click();
     }
+
 }
 
 

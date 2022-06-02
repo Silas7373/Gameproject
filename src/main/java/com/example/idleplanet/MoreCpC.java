@@ -2,6 +2,7 @@ package com.example.idleplanet;
 
 public class MoreCpC extends Upgrade{
 
+
     MoreCpC(){
         cost = 100;
         plusMoney = 1;
@@ -16,4 +17,5 @@ public class MoreCpC extends Upgrade{
     public void setPlusMoney(double plusMoney) {
         super.setPlusMoney(plusMoney+1);
     }*/
+
 }

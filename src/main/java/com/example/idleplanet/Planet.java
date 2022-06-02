@@ -8,6 +8,7 @@ import java.util.TimerTask;
 public class Planet {
 
 
+
     ArrayList<Image> imagelist = new ArrayList<Image>();
     ArrayList<MoreCpC> moreCpS = new ArrayList<>();
     ArrayList<MineralMine> mineralMines = new ArrayList<>();
@@ -22,14 +23,16 @@ public class Planet {
     Image planet2_grey = new Image(getClass().getResourceAsStream("planet2_grey.png"));
     Timer timer;
     Currency currency = new Currency(0);
-    int morecps=0;
+    int morecpsUp=0;
     boolean bool;
-
+    double plusMoney = 1;
     Planet(){
         imagelist.add(planet1);
         imagelist.add(planet1_grey);
         imagelist.add(planet2);
         imagelist.add(planet2_grey);
+
+
     }
 
     public void planetClicked(ImageView planetImage) {
@@ -37,7 +40,9 @@ public class Planet {
         planetImage.setFitHeight(130);
         planetImage.setFitWidth(151);
     }
-
+    public void setMoney(double currency){
+        this.currency.setMoney(currency);
+    }
     public void planetReleased(ImageView planetImage){
         planetImage.setImage(imagelist.get(index));
         planetImage.setFitHeight(128);
@@ -48,7 +53,7 @@ public class Planet {
         return currency.getMoneyint();
     }
     public void click(){
-        currency.setMoney(currency.getMoneyint()+1);
+            currency.setMoney(currency.getMoneyint() + plusMoney);
     }
     public void autoMoney() {
         if (bool){
@@ -56,10 +61,7 @@ public class Planet {
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    for (int i = 0; i< moreCpS.size();i++){
-                        currency.setMoney(currency.getMoneyint() + moreCpS.get(i).getPlusMoney());
-                    }
-
+                        currency.setMoney(currency.getMoneyint());
                 }
             },0,1);
             bool = false;
@@ -67,8 +69,16 @@ public class Planet {
         else{
             }
         }
-        public void buyUpgrade(){
-                MoreCpC moreCpC1 = new MoreCpC();
-                moreCpS.add(moreCpC1);
+        public void unlockUpgrade(){
+            MoreCpC moreCpC1 = new MoreCpC();
+            moreCpS.add(moreCpC1);
+            morecpsUp ++;
+            System.out.println(morecpsUp +":" + plusMoney);
+
+        }
+        public void calculatePlusMoney(){
+            for (int i = 0; i<morecpsUp; i++){
+                plusMoney += moreCpS.get(i).getPlusMoney();
+            }
         }
 }
