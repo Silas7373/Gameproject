@@ -25,6 +25,7 @@ public class Planet {
     Currency currency = new Currency(0);
     int morecpsUp=0;
     boolean bool;
+    boolean bool1 = false;
     double plusMoney = 1;
     Planet(){
         imagelist.add(planet1);
@@ -73,12 +74,23 @@ public class Planet {
             MoreCpC moreCpC1 = new MoreCpC();
             moreCpS.add(moreCpC1);
             morecpsUp ++;
+            calculatePlusMoney();
+
             System.out.println(morecpsUp +":" + plusMoney);
 
         }
-        public void calculatePlusMoney(){
-            for (int i = 0; i<morecpsUp; i++){
+        public void calculatePlusMoney() {
+
+            if (bool1) {
+                plusMoney = 0;
+                System.out.println("wodk");
+            }
+            else {
+                bool1 = true;
+            }
+            for (int i = 0; i < morecpsUp ; i++) {
                 plusMoney += moreCpS.get(i).getPlusMoney();
+                System.out.println("lol");
             }
         }
 }
