@@ -3,24 +3,16 @@ package com.example.idleplanet;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.EventObject;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -76,7 +68,9 @@ public class StartController {
 
     public void startGame(ActionEvent event) throws Exception {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        game.start(stage);
+        game.setPoints(points.getText());
+        stage.setScene(new Scene(game.createContent()));
+        stage.show();
     }
 
     public void openMenu(){

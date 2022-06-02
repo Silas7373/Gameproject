@@ -1,92 +1,154 @@
 package com.example.idleplanet;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.TextAlignment;
-import javafx.stage.Stage;
-import javafx.util.Duration;
 
-import java.util.Random;
+import javafx.animation.*;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
+import java.io.IOException;
 
 public class MiniGame {
-    private static final int width = 800;
-    private static final int height = 600;
-    private static final int PLAYER_HEIGHT = 100;
-    private static final int PLAYER_WIDTH = 15;
-    private static final double BALL_R = 15;
-    private int ballYSpeed = 1;
-    private int ballXSpeed = 1;
-    private double playerOneYPos = height / 2;
-    private double playerTwoYPos = height / 2;
-    private double ballXPos = width / 2;
-    private double ballYPos = height / 2;
-    private int scoreP1 = 0;
-    private int scoreP2 = 0;
-    private boolean gameStarted;
-    private int playerOneXPos = 0;
-    private double playerTwoXPos = width - PLAYER_WIDTH;
+    Pane pane;
+    Rectangle player;
+    Rectangle bot;
+    Circle ball;
+    AnimationTimer timer;
+    String points;
+    private final int WIDTH = 600;
+    private final int HEIGHT = 400;
+    private int speedX = 1;
+    private int speedY = 1;
+    private int sx = speedX;
+    private int sy = speedY;
 
-    public void start(Stage stage) throws Exception {
-        Canvas canvas = new Canvas(width, height);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        Timeline tl = new Timeline(new KeyFrame(Duration.millis(10), e -> run(gc)));
-        tl.setCycleCount(Timeline.INDEFINITE);
-        canvas.setOnMouseMoved(e ->  playerOneYPos  = e.getY());
-        canvas.setOnMouseClicked(e ->  gameStarted = true);
-        stage.setScene(new Scene(new StackPane(canvas)));
-        stage.show();
-        tl.play();
+    public void setPoints(String points)
+    {
+        this.points = points;
     }
 
-    private void run(GraphicsContext gc) {
-        gc.setFill(Color.BLACK);
-        gc.fillRect(0, 0, width, height);
-        gc.setFill(Color.WHITE);
-        gc.setFont(Font.font(25));
-        if(gameStarted) {
-            ballXPos+=ballXSpeed;
-            ballYPos+=ballYSpeed;
-            if(ballXPos < width - width  / 4) {
-                playerTwoYPos = ballYPos - PLAYER_HEIGHT / 2;
-            }  else {
-                playerTwoYPos =  ballYPos > playerTwoYPos + PLAYER_HEIGHT / 2 ?playerTwoYPos += 1: playerTwoYPos - 1;
+    public Parent createContent(){
+        pane = new Pane();
+        pane.setPrefSize(WIDTH, HEIGHT);
+        pane.setStyle("-fx-background-color: black");
+
+        bot = new Rectangle(10, 80, Color.WHITE);
+        bot.setLayoutY(HEIGHT/2-40);
+        bot.setLayoutX(0);
+
+        player = new Rectangle(10, 80, Color.WHITE);
+        player.setLayoutX(WIDTH-10);
+        player.setLayoutY(HEIGHT/2-40);
+
+        ball= new Circle(5, Color.WHITE);
+        ball.setLayoutX(WIDTH/2);
+        ball.setLayoutY(HEIGHT/2);
+
+        pane.getChildren().addAll(bot, player, ball);
+
+        timer = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                update();
             }
-            gc.fillOval(ballXPos, ballYPos, BALL_R, BALL_R);
-        } else {
-            gc.setStroke(Color.YELLOW);
-            gc.setTextAlign(TextAlignment.CENTER);
-            gc.strokeText("Click to Start", width / 2, height / 2);
-            ballXPos = width / 2;
-            ballYPos = height / 2;
-            ballXSpeed = new Random().nextInt(2) == 0 ? 1: -1;
-            ballYSpeed = new Random().nextInt(2) == 0 ? 1: -1;
-        }
-        if(ballYPos > height || ballYPos < 0) ballYSpeed *=-1;
-        if(ballXPos < playerOneXPos - PLAYER_WIDTH) {
-            scoreP2++;
-            gameStarted = false;
-        }
-        if(ballXPos > playerTwoXPos + PLAYER_WIDTH) {
-            scoreP1++;
-            gameStarted = false;
-        }
-        if( ((ballXPos + BALL_R > playerTwoXPos) && ballYPos >= playerTwoYPos && ballYPos <= playerTwoYPos + PLAYER_HEIGHT) ||
-                ((ballXPos < playerOneXPos + PLAYER_WIDTH) && ballYPos >= playerOneYPos && ballYPos <= playerOneYPos + PLAYER_HEIGHT)) {
-            ballYSpeed += 1 * Math.signum(ballYSpeed);
-            ballXSpeed += 1 * Math.signum(ballXSpeed);
-            ballXSpeed *= -1;
-            ballYSpeed *= -1;
-        }
-        gc.fillText(scoreP1 + "\t\t\t\t\t\t\t\t" + scoreP2, width / 2, 100);
-        gc.fillRect(playerTwoXPos, playerTwoYPos, PLAYER_WIDTH, PLAYER_HEIGHT);
-        gc.fillRect(playerOneXPos, playerOneYPos, PLAYER_WIDTH, PLAYER_HEIGHT);
+        };
+
+        timer.start();
+
+        return pane;
     }
+
+    private void update() {
+        double x = ball.getLayoutX();
+        double y = ball.getLayoutY();
+
+        pane.setOnKeyPressed(e ->{
+            switch (e.getCode()) {
+                case W:
+                    player.setLayoutY(player.getLayoutY() - 30);
+                    if (player.getLayoutY() <= 0) {
+                        player.setLayoutY(10);
+                    }
+
+                    break;
+                case S:
+                    player.setLayoutY(player.getLayoutY() + 30);
+                    if (player.getLayoutY() >= HEIGHT) {
+                        player.setLayoutY(HEIGHT - 10);
+                    }
+                    break;
+            }
+        });
+        pane.requestFocus();
+
+        if (x <= 10 && y > bot.getLayoutY() && y < bot.getLayoutY()+80)
+        {
+            sx = speedX;
+        }
+        if (x >= WIDTH-12.5 && y > player.getLayoutY() && y < player.getLayoutY()+80) {
+            speedX++;
+            sx = -speedX;
+        }
+        if(y <= 0)
+        {
+            sy = speedY;
+        }
+        if(y >= HEIGHT-5){
+            sy = -speedY;
+        }
+
+        ball.setLayoutX(ball.getLayoutX()+sx);
+        ball.setLayoutY(ball.getLayoutY()+sy);
+
+        if(x < WIDTH/2 && bot.getLayoutY() > y){
+            bot.setLayoutY(bot.getLayoutY()-5);
+        }
+        if (x < WIDTH/2 && bot.getLayoutY()+80 < y){
+            bot.setLayoutY(bot.getLayoutY()+5);
+        }
+
+        if(ball.getLayoutX() > WIDTH + 5 || ball.getLayoutX() < -5){
+           timer.stop();
+           Button exitButton = new Button();
+           exitButton.setText("Exit Game");
+            System.out.println(exitButton.getPrefWidth());
+           exitButton.setLayoutX(WIDTH/2 - 30);
+           exitButton.setLayoutY(HEIGHT/2);
+           pane.getChildren().addAll(exitButton);
+            exitButton.setOnAction(event -> {
+                try {
+                    exitGame(exitButton);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+
+        }
+    }
+
+
+    public void exitGame(Button exitButton) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        Scene scene = exitButton.getScene();
+        root.translateYProperty().set(scene.getHeight());
+        Pane parentContainer = (Pane) scene.getRoot();
+        parentContainer.getChildren().add(root);
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setOnFinished(event1 ->{
+            parentContainer.getChildren().remove(pane);
+        });
+        timeline.play();
+
+    }
+
 
 
 }
