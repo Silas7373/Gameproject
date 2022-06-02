@@ -3,8 +3,9 @@ package com.example.idleplanet;
 public class MoreCpC extends Upgrade{
 
 
-    MoreCpC(){
-        cost = 100;
+    MoreCpC(int setUpgradeLvl){
+        this.upgradeLvL = setUpgradeLvl;
+        cost = 10 * 1.2 * (double) upgradeLvL;
         plusMoney = 1;
     }
 

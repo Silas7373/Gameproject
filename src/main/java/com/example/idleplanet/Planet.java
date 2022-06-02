@@ -16,7 +16,7 @@ public class Planet {
     ArrayList<AstronautBase> astronautBases = new ArrayList<>();
     int index = 0;
     double money;
-    public static int morecpccount = 0;
+    public int upgradeLvlCount = 1;
     Image planet1 = new Image(getClass().getResourceAsStream("planet.png"));
     Image planet1_grey = new Image(getClass().getResourceAsStream("planet_grey.png"));
     Image planet2 = new Image(getClass().getResourceAsStream("planet2.png"));
@@ -71,26 +71,32 @@ public class Planet {
             }
         }
         public void unlockUpgrade(){
-            MoreCpC moreCpC1 = new MoreCpC();
-            moreCpS.add(moreCpC1);
-            morecpsUp ++;
-            calculatePlusMoney();
+            MoreCpC moreCpC1 = new MoreCpC(upgradeLvlCount);
 
-            System.out.println(morecpsUp +":" + plusMoney);
-
+            System.out.println(moreCpC1.getCost());
+            if (moreCpC1.getCost() <= currency.getMoneyint()) {
+                currency.setMoney(currency.getMoneyint() - moreCpC1.getCost());
+                moreCpS.add(moreCpC1);
+                morecpsUp++;
+                calculatePlusMoney();
+                System.out.println(morecpsUp + ":" + plusMoney);
+                upgradeLvlCount++;
+            }
         }
         public void calculatePlusMoney() {
 
-            if (bool1) {
-                plusMoney = 0;
-                System.out.println("wodk");
-            }
-            else {
-                bool1 = true;
-            }
-            for (int i = 0; i < morecpsUp ; i++) {
-                plusMoney += moreCpS.get(i).getPlusMoney();
-                System.out.println("lol");
-            }
+
+                if (bool1) {
+                    plusMoney = 1;
+                }
+                else {
+                    bool1 = true;
+                }
+                for (int i = 0; i < morecpsUp ; i++) {
+                    plusMoney += moreCpS.get(i).getPlusMoney();
+                    System.out.println("lol");
+                }
+
+
         }
 }

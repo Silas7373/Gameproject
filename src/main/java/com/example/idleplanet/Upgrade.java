@@ -5,7 +5,7 @@ abstract class Upgrade {
     protected String name = "";
     protected double cost = 0;
     protected double plusMoney =0;
-
+    protected int upgradeLvL = 0;
     public String getName() {
         return name;
     }
@@ -31,4 +31,7 @@ abstract class Upgrade {
         this.plusMoney = plusMoney;
     }
 
+    public void setUpgradeLvL(int upgradeLvL) {
+        this.upgradeLvL = upgradeLvL;
+    }
 }
