@@ -66,9 +66,9 @@ public class StartController {
         Autoclick1();
     }
 
-    public void startGame(ActionEvent event) throws Exception {
+    public void startGame(ActionEvent event) {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        game.setPoints(points.getText());
+        game.setPoints(Double.parseDouble(points.getText()));
         stage.setScene(new Scene(game.createContent()));
         stage.show();
     }
@@ -132,6 +132,7 @@ public class StartController {
     }
 
 /*
+
     double geld = currency.getMoneyint();
     public static int lol = 0;
     boolean bool = true;
@@ -142,8 +143,10 @@ public class StartController {
         currency.setMoney(currency.money + currency.getPlanetstage());
         points.setText(String.valueOf(df.format(currency.getMoneyint())));
     }
+
     */
     public void Autoclick1() {
+
         Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override
@@ -151,6 +154,7 @@ public class StartController {
                     update(p.getMoney());
                 }
             },0,1);
+
     }
     public void update(double value) {
         Platform.runLater(() -> {
@@ -160,6 +164,8 @@ public class StartController {
     public void onClick(){
         p.click();
     }
+
+    public void setMoney(double currency){p.setMoney(currency);}
 
 }
 

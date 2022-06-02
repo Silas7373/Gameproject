@@ -49,7 +49,7 @@ public class Planet {
         planetImage.setFitHeight(128);
         planetImage.setFitWidth(149);
     }
-
+    public Currency getCurrency(){return currency;}
     public double getMoney() {
         return currency.getMoneyint();
     }
