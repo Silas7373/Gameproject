@@ -1,5 +1,4 @@
 package com.example.idleplanet;
-
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -127,10 +126,18 @@ public class StartController {
         mAnimation.closeInfo(infoContainer);
     }
 
-    public void buyUp(){
-        p.unlockUpgrade();
+    public void buyUpMoreCpC(){
+        p.unlockUpgradeMoreCpC();
     }
-
+    public void buyUpAstonautBase(){
+        p.unlockUpAstonautBase();
+    }
+    public void buyUpMineralMine(){
+        p.unlockUpMineralMine();
+    }
+    public void buyUpFactory(){
+        p.unlockUpFactory();
+    }
 /*
 
     double geld = currency.getMoneyint();

@@ -42,11 +42,11 @@
                 </AnchorPane>
             </top>
             <left>
-                <AnchorPane fx:id="slider" prefHeight="365.0" prefWidth="166.0" style="-fx-background-color: #1e1e1e;" BorderPane.alignment="CENTER">
+                <AnchorPane fx:id="slider" prefHeight="471.0" prefWidth="162.0" style="-fx-background-color: #1e1e1e;" BorderPane.alignment="CENTER">
                     <children>
                         <VBox fx:id="vbox" layoutX="23.0" layoutY="26.0" prefHeight="145.0" prefWidth="166.0" style="-fx-background-color: #1e1e1e;" AnchorPane.bottomAnchor="181.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
                             <children>
-                                <Button fx:id="b1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#buyUp" onMouseEntered="#btn1" onMouseExited="#closeInfo" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="BuyMoreCpC" textFill="#999999">
+                                <Button fx:id="b1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#buyUpMoreCpC" onMouseEntered="#btn1" onMouseExited="#closeInfo" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="BuyMoreCpC" textFill="#999999">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -57,7 +57,7 @@
                            <font>
                               <Font name="Monospaced Regular" size="13.0" />
                            </font></Button>
-                                <Button fx:id="b2" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseEntered="#btn2" onMouseExited="#closeInfo" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="Button" textFill="#949393">
+                                <Button fx:id="b2" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#buyUpAstonautBase" onMouseEntered="#btn2" onMouseExited="#closeInfo" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="AstonautBase" textFill="#949393">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -68,7 +68,7 @@
                            <font>
                               <Font name="Monospaced Regular" size="13.0" />
                            </font></Button>
-                                <Button fx:id="b3" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseEntered="#btn3" onMouseExited="#closeInfo" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="Button">
+                                <Button fx:id="b3" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#buyUpMineralMine" onMouseEntered="#btn3" onMouseExited="#closeInfo" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="MineralMine">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -79,6 +79,11 @@
                            <font>
                               <Font name="Monospaced Regular" size="13.0" />
                            </font></Button>
+                        <Button mnemonicParsing="false" onAction="#buyUpFactory" prefHeight="25.0" prefWidth="170.0" text="Factory" />
+                        <Button mnemonicParsing="false" text="Button" />
+                        <Button mnemonicParsing="false" text="Button" />
+                        <Button mnemonicParsing="false" text="Button" />
+                        <Button mnemonicParsing="false" text="Button" />
                                 <Button fx:id="b4" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#nextPlanet" onMouseEntered="#btn4" onMouseExited="#closeInfo" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="Planet">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">

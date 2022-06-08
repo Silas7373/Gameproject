@@ -1,5 +1,4 @@
 package com.example.idleplanet;
-
 public class Currency {
     double money;
     int[] lvlstage = new int[10];

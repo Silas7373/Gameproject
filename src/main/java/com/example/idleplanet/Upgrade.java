@@ -1,5 +1,4 @@
 package com.example.idleplanet;
-
 abstract class Upgrade {
 
     protected String name = "";

@@ -1,6 +1,4 @@
 package com.example.idleplanet;
-
-
 import javafx.animation.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,7 +16,6 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import java.io.IOException;
-
 public class MiniGame {
     Pane pane;
     Rectangle player;
