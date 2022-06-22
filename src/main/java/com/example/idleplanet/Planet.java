@@ -11,7 +11,9 @@ public class Planet {
     ArrayList<MineralMine> mineralMines = new ArrayList<>();
     ArrayList<Factory> factories = new ArrayList<>();
     ArrayList<AstronautBase> astronautBases = new ArrayList<>();
-    //ArrayList<Labatory> labatories =new Labatory();
+    ArrayList<Laboratory> laboratories = new ArrayList<>();
+    ArrayList<Bank> banks = new ArrayList<>();
+    ArrayList<Teleporter>teleporters = new ArrayList<>();
     //Images
     Image planet1 = new Image(getClass().getResourceAsStream("planet.png"));
     Image planet1_grey = new Image(getClass().getResourceAsStream("planet_grey.png"));
@@ -20,9 +22,9 @@ public class Planet {
     //Other (int, bool, double,...)
     Timer timer;
     Currency currency = new Currency(0);
-    public int upgradeLvlCountC = 1,upgradeLvlCountA = 1,upgradeLvlCountM = 1, upgradeLvlCountF = 1,morecpsUp=0, moreAstronautBaseUp = 0, moreMineralMineUp = 0, moreFactoryUp = 0, index = 0;
+    public int upgradeLvlCountC = 1,upgradeLvlCountA = 1,upgradeLvlCountM = 1, upgradeLvlCountF = 1, upgradeLvlCountB = 1, upgradeLvlCountL = 1, upgradeLvlCountT = 1,morecpsUp=0, moreAstronautBaseUp = 0, moreMineralMineUp = 0, moreFactoryUp = 0, moreLaboratoryUp = 0, moreBankUp = 0, moreTeleporterUp = 0, index = 0;
     boolean bool, bool1 = false;
-    double plusMoneyC = 1, plusMoneyA = 0, plusMoneyF = 0, plusMoneyM = 0, money;
+    double plusMoneyC = 1, plusMoneyA = 0, plusMoneyF = 0, plusMoneyM = 0, plusMoneyL = 0, plusMoneyB = 0, plusMoneyT = 0;
     Planet(){
         imagelist.add(planet1);
         imagelist.add(planet1_grey);
@@ -51,17 +53,14 @@ public class Planet {
     }
     public void autoMoney() {
         System.out.println("funktioniert1");
-            //if (bool){
                 timer = new Timer();
                 timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        currency.setMoney(currency.getMoneyint() + plusMoneyA + plusMoneyF+ plusMoneyM);
+                        currency.setMoney(currency.getMoneyint() + plusMoneyA + plusMoneyF+ plusMoneyM+ plusMoneyL+ plusMoneyB+ plusMoneyT);
 
                     }
                 },0,1);
-                bool = false;
-           // }
         }
     public void unlockUpgradeMoreCpC(){
         MoreCpC moreCpC1 = new MoreCpC(upgradeLvlCountC);
@@ -116,17 +115,45 @@ public class Planet {
         }
 
     }
-    public void unlockUpLabatory() {
-        Factory factory = new Factory(upgradeLvlCountF);
-        System.out.println(factory.getCost());
+    public void unlockUpLaboratory() {
+        Laboratory laboratory = new Laboratory(upgradeLvlCountB);
+        System.out.println(laboratory.getCost());
 
-        if (factory.getCost() <= currency.getMoneyint()) {
-            currency.setMoney(currency.getMoneyint() - factory.getCost());
-            factories.add(factory);
-            moreFactoryUp++;
-            calculatePlusMoney(3);
-            System.out.println(moreAstronautBaseUp + ":" + plusMoneyA);
-            upgradeLvlCountF++;
+        if (laboratory.getCost() <= currency.getMoneyint()) {
+            currency.setMoney(currency.getMoneyint() - laboratory.getCost());
+            laboratories.add(laboratory);
+            moreLaboratoryUp++;
+            calculatePlusMoney(5);
+            System.out.println(moreLaboratoryUp + ":" + plusMoneyL);
+            upgradeLvlCountL++;
+        }
+
+    }
+    public void unlockUpBank() {
+        Bank bank = new Bank(upgradeLvlCountB);
+        System.out.println(bank.getCost());
+
+        if (bank.getCost() <= currency.getMoneyint()) {
+            currency.setMoney(currency.getMoneyint() - bank.getCost());
+            banks.add(bank);
+            moreBankUp++;
+            calculatePlusMoney(6);
+            System.out.println(moreBankUp + ":" + plusMoneyB);
+            upgradeLvlCountB++;
+        }
+
+    }
+    public void unlockUpTeleporter() {
+        Teleporter teleporter = new Teleporter(upgradeLvlCountT);
+        System.out.println(teleporter.getCost());
+
+        if (teleporter.getCost() <= currency.getMoneyint()) {
+            currency.setMoney(currency.getMoneyint() - teleporter.getCost());
+            teleporters.add(teleporter);
+            moreTeleporterUp++;
+            calculatePlusMoney(7);
+            System.out.println(moreTeleporterUp + ":" + plusMoneyT);
+            upgradeLvlCountT++;
         }
 
     }
@@ -164,6 +191,27 @@ public class Planet {
                     System.out.println("lol");
                 }
             }
+            case 5-> {
+                plusMoneyL = 0;
+                for (int i = 0; i < moreLaboratoryUp; i++) {
+                    plusMoneyL += laboratories.get(i).getPlusMoney();
+                    System.out.println("lol");
+                }
+            }
+            case 6-> {
+                plusMoneyB = 0;
+                for (int i = 0; i < moreBankUp; i++) {
+                    plusMoneyB += banks.get(i).getPlusMoney();
+                    System.out.println("lol");
+                }
+            }
+            case 7-> {
+                plusMoneyT = 0;
+                for (int i = 0; i < moreTeleporterUp; i++) {
+                    plusMoneyT += teleporters.get(i).getPlusMoney();
+                    System.out.println("lol");
+                }
+            }
         }
     }
     public void setMoreUp(int morecpsUp, int moreAstronautBaseUp, int moreMineralMineUp, int moreFactoryUp) {
@@ -171,7 +219,29 @@ public class Planet {
         this.moreAstronautBaseUp = moreAstronautBaseUp;
         this.moreMineralMineUp = moreMineralMineUp;
         this.moreFactoryUp = moreFactoryUp;
+        this.moreLaboratoryUp = moreLaboratoryUp;
+        this.moreBankUp = moreBankUp;
+        this.moreTeleporterUp = moreTeleporterUp;
     }
-
-
+    public int getMorecpsUp() {
+        return morecpsUp;
+    }
+    public int getMoreAstronautBaseUp() {
+        return moreAstronautBaseUp;
+    }
+    public int getMoreMineralMineUp() {
+        return moreMineralMineUp;
+    }
+    public int getMoreFactoryUp() {
+        return moreFactoryUp;
+    }
+    public int getMoreLaboratoryUp() {
+        return moreLaboratoryUp;
+    }
+    public int getMoreBankUp() {
+        return moreBankUp;
+    }
+    public int getMoreTeleporterUp() {
+        return moreTeleporterUp;
+    }
 }

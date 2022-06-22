@@ -37,13 +37,7 @@ public class StartController {
     @FXML
     ImageView planetImage;
     @FXML
-    Button b1;
-    @FXML
-    Button b2;
-    @FXML
-    Button b3;
-    @FXML
-    Button b4;
+    Button b1, b2, b3, b4, b5, b6, b7;
     @FXML
     VBox infoContainer;
     @FXML
@@ -118,10 +112,17 @@ public class StartController {
     }
 
     public void btn4(){
-
         mAnimation.openInfo(4, infoText, infoContainer);
     }
-
+    public void btn5(){
+        mAnimation.openInfo(5, infoText, infoContainer);
+    }
+    public void btn6(){
+        mAnimation.openInfo(6, infoText, infoContainer);
+    }
+    public void btn7(){
+        mAnimation.openInfo(7, infoText, infoContainer);
+    }
     public void closeInfo(){
         mAnimation.closeInfo(infoContainer);
     }
@@ -138,22 +139,16 @@ public class StartController {
     public void buyUpFactory(){
         p.unlockUpFactory();
     }
-/*
-
-    double geld = currency.getMoneyint();
-    public static int lol = 0;
-    boolean bool = true;
-    Upgrades upgrades = new Upgrades();
-
-
-    public void onButtonClick() {
-        currency.setMoney(currency.money + currency.getPlanetstage());
-        points.setText(String.valueOf(df.format(currency.getMoneyint())));
+    public void buyUpLaboratory(){
+        p.unlockUpLaboratory();
     }
-
-    */
+    public void buyUpBank(){
+        p.unlockUpBank();
+    }
+    public void buyUpTeleporter(){
+        p.unlockUpTeleporter();
+    }
     public void Autoclick1() {
-
         Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override
@@ -161,7 +156,6 @@ public class StartController {
                     update(p.getMoney());
                 }
             },0,1);
-
     }
     public void update(double value) {
         Platform.runLater(() -> {
