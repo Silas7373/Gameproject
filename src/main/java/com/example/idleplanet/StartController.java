@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -151,30 +150,30 @@ public class StartController {
     }
 
     public void buyUpMoreCpC(){
-        p.unlockUpgradeMoreCpC();
+        p.unlockUpgradeMoreCpC(false);
     }
 
     public void buyUpAstonautBase(){
-        p.unlockUpAstonautBase();
+        p.unlockUpAstonautBase(false);
     }
 
     public void buyUpMineralMine(){
-        p.unlockUpMineralMine();
+        p.unlockUpMineralMine(false);
     }
 
     public void buyUpFactory(){
-        p.unlockUpFactory();
+        p.unlockUpFactory(false);
     }
 
     public void buyUpLaboratory(){
-        p.unlockUpLaboratory();
+        p.unlockUpLaboratory(false);
     }
 
     public void buyUpBank(){
-        p.unlockUpBank();
+        p.unlockUpBank(false);
     }
     public void buyUpTeleporter(){
-        p.unlockUpTeleporter();
+        p.unlockUpTeleporter(false);
     }
 
     public void Autoclick1() {

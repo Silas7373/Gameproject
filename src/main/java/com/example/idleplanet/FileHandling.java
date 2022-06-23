@@ -61,6 +61,27 @@ public class FileHandling {
         }
         planet.setMoreUp(level[0],level[1],level[2],level[3],level[4],level[5],level[6]);
         planet.setPlanetLvl(level[7]);
+        for (int i = 0; i<level[0];i++){
+            planet.unlockUpgradeMoreCpC(true);
+        }
+        for (int i = 0; i<level[1];i++){
+                planet.unlockUpAstonautBase(true);
+        }
+        for (int i = 0; i<level[2];i++){
+            planet.unlockUpMineralMine(true);
+        }
+        for (int i = 0; i<level[3];i++){
+            planet.unlockUpFactory(true);
+        }
+        for (int i = 0; i<level[4];i++){
+            planet.unlockUpLaboratory(true);
+        }
+        for (int i = 0; i<level[5];i++){
+            planet.unlockUpBank(true);
+        }
+        for (int i = 0; i<level[6];i++){
+            planet.unlockUpTeleporter(true);
+        }
         if (testing){
             planet.setMoney(points);
         }

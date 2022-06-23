@@ -95,11 +95,13 @@ public class Planet {
         }
     }
 
-    public void unlockUpgradeMoreCpC(){
+    public void unlockUpgradeMoreCpC(boolean file){
         MoreCpC moreCpC1 = new MoreCpC(upgradeLvlCountC, planetLvl);
 
-        if (moreCpC1.cost < currency.getMoneyint()) {
-            currency.setMoney(currency.getMoneyint() - moreCpC1.getCost());
+        if (moreCpC1.cost < currency.getMoneyint()||file) {
+            if (!file) {
+                currency.setMoney(currency.getMoneyint() - moreCpC1.getCost());
+            }
             moreCpS.add(moreCpC1);
             morecpsUp++;
             calculatePlusMoney(1);
@@ -108,12 +110,14 @@ public class Planet {
         }
     }
 
-    public void unlockUpAstonautBase(){
+    public void unlockUpAstonautBase(boolean file){
         AstronautBase astronautBase = new AstronautBase(upgradeLvlCountA, planetLvl);
         System.out.println(astronautBase.getCost());
 
-        if (astronautBase.cost < currency.getMoneyint()) {
-            currency.setMoney(currency.getMoneyint() - astronautBase.getCost());
+        if (astronautBase.cost < currency.getMoneyint()||file) {
+            if (!file){
+                currency.setMoney(currency.getMoneyint() - astronautBase.getCost());
+            }
             astronautBases.add(astronautBase);
             moreAstronautBaseUp++;
             calculatePlusMoney(2);
@@ -122,12 +126,14 @@ public class Planet {
         }
     }
 
-    public void unlockUpMineralMine(){
+    public void unlockUpMineralMine(boolean file){
         MineralMine mineralMine = new MineralMine(upgradeLvlCountM, planetLvl);
         System.out.println(mineralMine.getCost());
 
-        if (mineralMine.cost < currency.getMoneyint()) {
-            currency.setMoney(currency.getMoneyint() - mineralMine.getCost());
+        if (mineralMine.cost < currency.getMoneyint()||file) {
+            if (!file) {
+                currency.setMoney(currency.getMoneyint() - mineralMine.getCost());
+            }
             mineralMines.add(mineralMine);
             moreMineralMineUp++;
             calculatePlusMoney(4);
@@ -136,12 +142,14 @@ public class Planet {
         }
     }
 
-    public void unlockUpFactory() {
+    public void unlockUpFactory(boolean file) {
         Factory factory = new Factory(upgradeLvlCountF, planetLvl);
         System.out.println(factory.getCost());
 
-        if (factory.cost < currency.getMoneyint()) {
-            currency.setMoney(currency.getMoneyint() - factory.getCost());
+        if (factory.cost < currency.getMoneyint()||file) {
+            if (!file) {
+                currency.setMoney(currency.getMoneyint() - factory.getCost());
+            }
             factories.add(factory);
             moreFactoryUp++;
             calculatePlusMoney(3);
@@ -151,12 +159,14 @@ public class Planet {
 
     }
 
-    public void unlockUpLaboratory() {
+    public void unlockUpLaboratory(boolean file) {
         Laboratory laboratory = new Laboratory(upgradeLvlCountB, planetLvl);
         System.out.println(laboratory.getCost());
 
-        if (laboratory.cost < currency.getMoneyint()) {
-            currency.setMoney(currency.getMoneyint() - laboratory.getCost());
+        if (laboratory.cost < currency.getMoneyint()||file) {
+            if (!file) {
+                currency.setMoney(currency.getMoneyint() - laboratory.getCost());
+            }
             laboratories.add(laboratory);
             moreLaboratoryUp++;
             calculatePlusMoney(5);
@@ -166,12 +176,14 @@ public class Planet {
 
     }
 
-    public void unlockUpBank() {
+    public void unlockUpBank(boolean file) {
         Bank bank = new Bank(upgradeLvlCountB, planetLvl);
         System.out.println(bank.getCost());
 
-        if (bank.cost < currency.getMoneyint()) {
-            currency.setMoney(currency.getMoneyint() - bank.getCost());
+        if (bank.cost < currency.getMoneyint()||file) {
+            if (!file) {
+                currency.setMoney(currency.getMoneyint() - bank.getCost());
+            }
             banks.add(bank);
             moreBankUp++;
             calculatePlusMoney(6);
@@ -181,12 +193,14 @@ public class Planet {
 
     }
 
-    public void unlockUpTeleporter() {
+    public void unlockUpTeleporter(boolean file) {
         Teleporter teleporter = new Teleporter(upgradeLvlCountT, planetLvl);
         System.out.println(teleporter.getCost());
 
-        if (teleporter.cost < currency.getMoneyint()) {
-            currency.setMoney(currency.getMoneyint() - teleporter.getCost());
+        if (teleporter.cost < currency.getMoneyint()||file) {
+            if (!file) {
+                currency.setMoney(currency.getMoneyint() - teleporter.getCost());
+            }
             teleporters.add(teleporter);
             moreTeleporterUp++;
             calculatePlusMoney(7);
@@ -204,51 +218,51 @@ public class Planet {
                 } else {
                     bool1 = true;
                 }
-                for (int i = 0; i < morecpsUp; i++) {
+                for (int i = 0; i < moreCpS.size(); i++) {
                     plusMoneyC += moreCpS.get(i).getPlusMoney();
-                    //System.out.println("lol");
+
                 }
             }
             case 2 -> {
                 plusMoneyA = 0;
-                for (int j = 0; j < moreAstronautBaseUp; j++) {
-                    plusMoneyA += astronautBases.get(j).getPlusMoney();
-                    System.out.println("lol");
+                for (int i = 0; i < astronautBases.size(); i++) {
+                    plusMoneyA += astronautBases.get(i).getPlusMoney();
+
                 }
             }
             case 3 -> {
                 plusMoneyF = 0;
-                for (int i = 0; i < moreFactoryUp; i++) {
+                for (int i = 0; i < factories.size(); i++) {
                     plusMoneyF += factories.get(i).getPlusMoney();
-                    System.out.println("lol");
+
                 }
             }
             case 4 -> {
                 plusMoneyM = 0;
-                for (int i = 0; i < moreMineralMineUp; i++) {
+                for (int i = 0; i < mineralMines.size(); i++) {
                     plusMoneyM += mineralMines.get(i).getPlusMoney();
-                    System.out.println("lol");
+
                 }
             }
             case 5-> {
                 plusMoneyL = 0;
-                for (int i = 0; i < moreLaboratoryUp; i++) {
+                for (int i = 0; i < laboratories.size(); i++) {
                     plusMoneyL += laboratories.get(i).getPlusMoney();
-                    System.out.println("lol");
+
                 }
             }
             case 6-> {
                 plusMoneyB = 0;
-                for (int i = 0; i < moreBankUp; i++) {
+                for (int i = 0; i < banks.size(); i++) {
                     plusMoneyB += banks.get(i).getPlusMoney();
-                    System.out.println("lol");
+
                 }
             }
             case 7-> {
                 plusMoneyT = 0;
-                for (int i = 0; i < moreTeleporterUp; i++) {
+                for (int i = 0; i < teleporters.size(); i++) {
                     plusMoneyT += teleporters.get(i).getPlusMoney();
-                    System.out.println("lol");
+
                 }
             }
         }
