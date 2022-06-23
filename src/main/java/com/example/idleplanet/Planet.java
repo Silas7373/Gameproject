@@ -22,35 +22,44 @@ public class Planet {
     //Other (int, bool, double,...)
     Timer timer;
     Currency currency = new Currency(0);
-    public int upgradeLvlCountC = 1,upgradeLvlCountA = 1,upgradeLvlCountM = 1, upgradeLvlCountF = 1, upgradeLvlCountB = 1, upgradeLvlCountL = 1, upgradeLvlCountT = 1,morecpsUp=0, moreAstronautBaseUp = 0, moreMineralMineUp = 0, moreFactoryUp = 0, moreLaboratoryUp = 0, moreBankUp = 0, moreTeleporterUp = 0, index = 0;
+    public int upgradeLvlCountC = 1,upgradeLvlCountA = 1,upgradeLvlCountM = 1, upgradeLvlCountF = 1, upgradeLvlCountB = 1, upgradeLvlCountL = 1, upgradeLvlCountT = 1,
+            morecpsUp=0, moreAstronautBaseUp = 0, moreMineralMineUp = 0, moreFactoryUp = 0, moreLaboratoryUp = 0, moreBankUp = 0, moreTeleporterUp = 0,
+            index = 0, planetLvl = 1;
     boolean bool, bool1 = false;
-    double plusMoneyC = 1, plusMoneyA = 0, plusMoneyF = 0, plusMoneyM = 0, plusMoneyL = 0, plusMoneyB = 0, plusMoneyT = 0;
+    double plusMoneyC = 0, plusMoneyA = 0, plusMoneyF = 0, plusMoneyM = 0, plusMoneyL = 0, plusMoneyB = 0, plusMoneyT = 0, nextplanetcost = 10*Math.pow(planetLvl,3);
     Planet(){
         imagelist.add(planet1);
         imagelist.add(planet1_grey);
         imagelist.add(planet2);
         imagelist.add(planet2_grey);
     }
+
     public void planetClicked(ImageView planetImage) {
         planetImage.setImage(imagelist.get(index+1));
         planetImage.setFitHeight(130);
         planetImage.setFitWidth(151);
     }
+
     public void setMoney(double currency){
         this.currency.setMoney(currency);
     }
+
     public void planetReleased(ImageView planetImage){
         planetImage.setImage(imagelist.get(index));
         planetImage.setFitHeight(128);
         planetImage.setFitWidth(149);
     }
+
     public Currency getCurrency(){return currency;}
+
     public double getMoney() {
         return currency.getMoneyint();
     }
+
     public void click(){
-            currency.setMoney(currency.getMoneyint() + plusMoneyC);
+            currency.setMoney(currency.getMoneyint() + plusMoneyC+1);
     }
+
     public void autoMoney() {
         System.out.println("funktioniert1");
                 timer = new Timer();
@@ -62,11 +71,20 @@ public class Planet {
                     }
                 },0,1);
         }
-    public void unlockUpgradeMoreCpC(){
-        MoreCpC moreCpC1 = new MoreCpC(upgradeLvlCountC);
 
-        System.out.println(moreCpC1.getCost());
-        if (moreCpC1.getCost() <= currency.getMoneyint()) {
+    public void nextPlanet(){
+        currency.setMoney(currency.getMoneyint()-nextplanetcost);
+        setMoreUp(0,0,0,0,0,0,0);
+        setPlusmoney(0,0,0,0,0,0,0);
+        clearUpgradeLists();
+        currency.setMoney(0);
+        planetLvl++;
+    }
+
+    public void unlockUpgradeMoreCpC(){
+        MoreCpC moreCpC1 = new MoreCpC(upgradeLvlCountC, planetLvl);
+
+        if (moreCpC1.cost < currency.getMoneyint()) {
             currency.setMoney(currency.getMoneyint() - moreCpC1.getCost());
             moreCpS.add(moreCpC1);
             morecpsUp++;
@@ -75,11 +93,12 @@ public class Planet {
             upgradeLvlCountC++;
         }
     }
+
     public void unlockUpAstonautBase(){
-        AstronautBase astronautBase = new AstronautBase(upgradeLvlCountA);
+        AstronautBase astronautBase = new AstronautBase(upgradeLvlCountA, planetLvl);
         System.out.println(astronautBase.getCost());
 
-        if (astronautBase.getCost() <= currency.getMoneyint()) {
+        if (astronautBase.cost < currency.getMoneyint()) {
             currency.setMoney(currency.getMoneyint() - astronautBase.getCost());
             astronautBases.add(astronautBase);
             moreAstronautBaseUp++;
@@ -88,11 +107,12 @@ public class Planet {
             upgradeLvlCountA++;
         }
     }
+
     public void unlockUpMineralMine(){
-        MineralMine mineralMine = new MineralMine(upgradeLvlCountM);
+        MineralMine mineralMine = new MineralMine(upgradeLvlCountM, planetLvl);
         System.out.println(mineralMine.getCost());
 
-        if (mineralMine.getCost() <= currency.getMoneyint()) {
+        if (mineralMine.cost < currency.getMoneyint()) {
             currency.setMoney(currency.getMoneyint() - mineralMine.getCost());
             mineralMines.add(mineralMine);
             moreMineralMineUp++;
@@ -101,11 +121,12 @@ public class Planet {
             upgradeLvlCountM++;
         }
     }
+
     public void unlockUpFactory() {
-        Factory factory = new Factory(upgradeLvlCountF);
+        Factory factory = new Factory(upgradeLvlCountF, planetLvl);
         System.out.println(factory.getCost());
 
-        if (factory.getCost() <= currency.getMoneyint()) {
+        if (factory.cost < currency.getMoneyint()) {
             currency.setMoney(currency.getMoneyint() - factory.getCost());
             factories.add(factory);
             moreFactoryUp++;
@@ -115,11 +136,12 @@ public class Planet {
         }
 
     }
+
     public void unlockUpLaboratory() {
-        Laboratory laboratory = new Laboratory(upgradeLvlCountB);
+        Laboratory laboratory = new Laboratory(upgradeLvlCountB, planetLvl);
         System.out.println(laboratory.getCost());
 
-        if (laboratory.getCost() <= currency.getMoneyint()) {
+        if (laboratory.cost < currency.getMoneyint()) {
             currency.setMoney(currency.getMoneyint() - laboratory.getCost());
             laboratories.add(laboratory);
             moreLaboratoryUp++;
@@ -129,11 +151,12 @@ public class Planet {
         }
 
     }
+
     public void unlockUpBank() {
-        Bank bank = new Bank(upgradeLvlCountB);
+        Bank bank = new Bank(upgradeLvlCountB, planetLvl);
         System.out.println(bank.getCost());
 
-        if (bank.getCost() <= currency.getMoneyint()) {
+        if (bank.cost < currency.getMoneyint()) {
             currency.setMoney(currency.getMoneyint() - bank.getCost());
             banks.add(bank);
             moreBankUp++;
@@ -143,11 +166,12 @@ public class Planet {
         }
 
     }
+
     public void unlockUpTeleporter() {
-        Teleporter teleporter = new Teleporter(upgradeLvlCountT);
+        Teleporter teleporter = new Teleporter(upgradeLvlCountT, planetLvl);
         System.out.println(teleporter.getCost());
 
-        if (teleporter.getCost() <= currency.getMoneyint()) {
+        if (teleporter.cost < currency.getMoneyint()) {
             currency.setMoney(currency.getMoneyint() - teleporter.getCost());
             teleporters.add(teleporter);
             moreTeleporterUp++;
@@ -157,6 +181,7 @@ public class Planet {
         }
 
     }
+
     public void calculatePlusMoney(int tryout) {
         switch (tryout) {
             case 1 -> {
@@ -167,7 +192,7 @@ public class Planet {
                 }
                 for (int i = 0; i < morecpsUp; i++) {
                     plusMoneyC += moreCpS.get(i).getPlusMoney();
-                    System.out.println("lol");
+                    //System.out.println("lol");
                 }
             }
             case 2 -> {
@@ -214,7 +239,8 @@ public class Planet {
             }
         }
     }
-    public void setMoreUp(int morecpsUp, int moreAstronautBaseUp, int moreMineralMineUp, int moreFactoryUp) {
+
+    public void setMoreUp(int morecpsUp, int moreAstronautBaseUp, int moreMineralMineUp, int moreFactoryUp, int moreLaboratoryUp, int moreBankUp, int moreTeleporterUp) {
         this.morecpsUp = morecpsUp;
         this.moreAstronautBaseUp = moreAstronautBaseUp;
         this.moreMineralMineUp = moreMineralMineUp;
@@ -223,25 +249,60 @@ public class Planet {
         this.moreBankUp = moreBankUp;
         this.moreTeleporterUp = moreTeleporterUp;
     }
+    public void setPlusmoney(int plusMoneyT,int plusMoneyA,int plusMoneyB,int plusMoneyF, int plusMoneyC,int plusMoneyM,int plusMoneyL){
+        this.plusMoneyA = plusMoneyA;
+        this.plusMoneyC = plusMoneyC;
+        this.plusMoneyT = plusMoneyT;
+        this.plusMoneyB = plusMoneyB;
+        this.plusMoneyL = plusMoneyL;
+        this.plusMoneyF = plusMoneyF;
+        this.plusMoneyM = plusMoneyM;
+    }
+    public void clearUpgradeLists(){
+        astronautBases.clear();
+        mineralMines.clear();
+        factories.clear();
+        laboratories.clear();
+        banks.clear();
+        teleporters.clear();
+    }
     public int getMorecpsUp() {
         return morecpsUp;
     }
+
     public int getMoreAstronautBaseUp() {
         return moreAstronautBaseUp;
     }
+
     public int getMoreMineralMineUp() {
         return moreMineralMineUp;
     }
+
     public int getMoreFactoryUp() {
         return moreFactoryUp;
     }
+
     public int getMoreLaboratoryUp() {
         return moreLaboratoryUp;
     }
+
     public int getMoreBankUp() {
         return moreBankUp;
     }
+
     public int getMoreTeleporterUp() {
         return moreTeleporterUp;
+    }
+
+    public void setPlanetLvl(int planetLvl) {
+        this.planetLvl = planetLvl;
+    }
+
+    public int getPlanetLvl() {
+        return planetLvl;
+    }
+
+    public double getNextplanetcost() {
+        return nextplanetcost;
     }
 }

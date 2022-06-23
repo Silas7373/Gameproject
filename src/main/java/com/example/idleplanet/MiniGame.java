@@ -201,6 +201,9 @@ public class MiniGame {
         Parent root = loader.load();
         StartController controller = loader.getController();
         controller.setMoney(points);
+        controller.Autoclick1();
+        controller.startAutomoney();
+
         Scene scene = exitButton.getScene();
         root.translateYProperty().set(scene.getHeight());
         Pane parentContainer = (Pane) scene.getRoot();

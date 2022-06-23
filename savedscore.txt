@@ -1,0 +1,9 @@
+LVLCpC:0
+LVLAstBase:2
+LVLMine:0
+LVLFactory:0
+LVLLab:0
+LVLBank:0
+LVLTP:0
+Points:7
+PlanetLvl:1

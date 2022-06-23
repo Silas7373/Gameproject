@@ -63,13 +63,17 @@ public class MenuAnimation {
             infoText.setText("Wenn du dieses \nUpgrade kaufst, \nbekommst du einen \nneuen Planeten.");
         }
         else if (b == 5){
-            infoText.setText("Mit diesem Upgrade\n bekommest du\n automatisch noch\n mehr");
+            infoText.setText("Mit diesem Upgrade\nbekommest du\n automatisch noch\n mehr");
         }
         else if (b == 6){
-            infoText.setText("Mit diesem Upgrade\n bekommest du\n automatisch viel\n mehr");
+            infoText.setText("Mit diesem Upgrade\nbekommest du\n automatisch viel\n mehr");
         }
         else if (b == 7){
-            infoText.setText("Mit diesem Upgrade\n bekommest du\n automatisch sehr\n viel mehr");
+            infoText.setText("Mit diesem Upgrade\nbekommest du\n automatisch sehr\n viel mehr");
+        } else if (b == 8) {
+            infoText.setText("Mit Safe startest \ndu das \nautomatische sichern");
+        }else if (b == 9) {
+            infoText.setText("Mit Load wird \ndein Spielstand\ngeladen");
         }
         TranslateTransition slide = new TranslateTransition();
         slide.setDuration(Duration.seconds(0.3));
