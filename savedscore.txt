@@ -1,9 +1,9 @@
 LVLCpC:0
-LVLAstBase:72
+LVLAstBase:0
 LVLMine:0
-LVLFactory:4
+LVLFactory:0
 LVLLab:0
-LVLBank:4
-LVLTP:4
-Points:348487
+LVLBank:0
+LVLTP:0
+Points:0
 PlanetLvl:1

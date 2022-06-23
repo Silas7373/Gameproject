@@ -76,6 +76,8 @@ public class Planet {
                 },0,1);
         }
 
+
+
     public void nextPlanet() throws FileNotFoundException {
         if(index+2 < imagelist.size()) {
             currency.setMoney(currency.getMoneyint() - nextplanetcost);

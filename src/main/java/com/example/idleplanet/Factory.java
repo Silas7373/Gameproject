@@ -6,4 +6,5 @@ public class Factory extends Upgrade{
         cost = 1 *Math.pow(upgradeLvl,3) * 1.2*(planetLvl);
         plusMoney = 10;
     }
+
 }

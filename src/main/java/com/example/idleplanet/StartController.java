@@ -1,10 +1,12 @@
 package com.example.idleplanet;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -17,6 +19,15 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class StartController {
+
+    public static StartController instance;
+
+    public StartController(){
+        if (instance == null){
+            instance = this;
+        }
+    }
+
     @FXML
     GridPane gridPane1;
     @FXML
@@ -38,7 +49,7 @@ public class StartController {
     @FXML
     ImageView planetImage;
     @FXML
-    Button b1, b2, b3, b4, b5, b6, b7, save, load;
+    public Button b1, b2, b3, b4, b5, b6, b7, save;
     @FXML
     VBox infoContainer;
     @FXML
@@ -142,8 +153,6 @@ public class StartController {
     }
 
     public void saveInfo(){mAnimation.openInfo(8, infoText, infoContainer);}
-
-    public void loadInfo(){mAnimation.openInfo(9, infoText, infoContainer);}
 
     public void closeInfo(){
         mAnimation.closeInfo(infoContainer);
