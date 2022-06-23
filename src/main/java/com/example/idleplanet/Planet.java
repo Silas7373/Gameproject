@@ -1,6 +1,9 @@
 package com.example.idleplanet;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -19,6 +22,7 @@ public class Planet {
     Image planet1_grey = new Image(getClass().getResourceAsStream("planet_grey.png"));
     Image planet2 = new Image(getClass().getResourceAsStream("planet2.png"));
     Image planet2_grey = new Image(getClass().getResourceAsStream("planet2_grey.png"));
+    ImageView planetImage;
     //Other (int, bool, double,...)
     Timer timer;
     Currency currency = new Currency(0);
@@ -72,13 +76,23 @@ public class Planet {
                 },0,1);
         }
 
-    public void nextPlanet(){
-        currency.setMoney(currency.getMoneyint()-nextplanetcost);
-        setMoreUp(0,0,0,0,0,0,0);
-        setPlusmoney(0,0,0,0,0,0,0);
-        clearUpgradeLists();
-        currency.setMoney(0);
-        planetLvl++;
+    public void nextPlanet() throws FileNotFoundException {
+        if(index+2 < imagelist.size()) {
+            currency.setMoney(currency.getMoneyint() - nextplanetcost);
+            setMoreUp(0, 0, 0, 0, 0, 0, 0);
+            setPlusmoney(0, 0, 0, 0, 0, 0, 0);
+            clearUpgradeLists();
+            currency.setMoney(0);
+            planetLvl++;
+            index = index + 2;
+            planetImage.setImage(imagelist.get(index));
+            planetImage.setFitHeight(128);
+            planetImage.setFitWidth(149);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+            StartController controller = loader.getController();
+            controller.fileHandling.loadFromFile(controller.p, false);
+            controller.setPlanetImage(planetImage);
+        }
     }
 
     public void unlockUpgradeMoreCpC(){

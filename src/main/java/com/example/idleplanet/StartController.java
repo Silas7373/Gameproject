@@ -46,14 +46,19 @@ public class StartController {
     Label infoText;
     @FXML
     TextField filename;
-    int index = 0;
-    MiniGame game = new MiniGame();
-    ArrayList<Image> imagelist = new ArrayList<Image>();
+
+    Pong game = new Pong();
+
     Planet p = new Planet();
+
     MenuAnimation mAnimation = new MenuAnimation();
+
     FileHandling fileHandling = new FileHandling();
+
     boolean alreadySaving;
+
     private static final DecimalFormat df = new DecimalFormat("0");
+
     @FXML
     public void initialize() throws FileNotFoundException {
         mAnimation.openMenu(slider, gridPane1);
@@ -61,6 +66,7 @@ public class StartController {
         p.autoMoney();
         Autoclick1();
         fileHandling.loadFromFile(p,true);
+
     }
 
     public void startGame(ActionEvent event) throws IOException {
@@ -91,19 +97,18 @@ public class StartController {
         myimageView.setImage(new Image(getClass().getResourceAsStream("menu_icon.png")));
     }
 
-    public void nextPlanet(){
-        if (p.getCurrency().getMoneyint() >= p.getNextplanetcost()){
-            System.out.println("Getting next Planet");
-            p.nextPlanet();
+    public void nextPlanet() throws FileNotFoundException {
 
-            if(index+2 < imagelist.size()) {
-                index = index + 2;
-                planetImage.setImage(imagelist.get(index));
-                planetImage.setFitHeight(128);
-                planetImage.setFitWidth(149);
 
+            if (p.getCurrency().getMoneyint() >= p.getNextplanetcost()){
+                p.nextPlanet();
             }
-        }
+
+
+    }
+
+    public void setPlanetImage(ImageView PlanetImage){
+        planetImage = PlanetImage;
     }
 
     public void btn1(){

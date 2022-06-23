@@ -2,7 +2,6 @@ package com.example.idleplanet;
 
 import com.example.idleplanet.Planet;
 
-import javax.swing.*;
 import java.io.*;
 import java.util.Locale;
 import java.util.Scanner;

@@ -16,13 +16,12 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import java.io.IOException;
-public class MiniGame {
+public class Pong {
     Pane pane;
     Rectangle player;
     Rectangle bot;
     Circle ball;
     AnimationTimer timer;
-    int check = 0;
     Double points;
     Double bet = 0.0;
     String buttonStyle =
@@ -92,7 +91,6 @@ public class MiniGame {
                                 update();
                             }
                         };
-
                         timer.start();
                     }
                 });
