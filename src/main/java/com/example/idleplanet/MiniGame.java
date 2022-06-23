@@ -200,6 +200,7 @@ public class MiniGame {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
         Parent root = loader.load();
         StartController controller = loader.getController();
+        controller.fileHandling.loadFromFile(controller.p,false);
         controller.setMoney(points);
         controller.Autoclick1();
         controller.startAutomoney();

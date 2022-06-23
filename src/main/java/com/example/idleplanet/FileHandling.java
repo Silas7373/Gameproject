@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 
 public class FileHandling {
-    public void loadFromFile(Planet planet) throws FileNotFoundException {
+    public void loadFromFile(Planet planet, boolean testing) throws FileNotFoundException {
         System.out.println("LOADING LEVELS FROM FILE");
         File obj = new File("savedscore.txt");
         Scanner myReader = new Scanner(obj);
@@ -62,7 +62,10 @@ public class FileHandling {
         }
         planet.setMoreUp(level[0],level[1],level[2],level[3],level[4],level[5],level[6]);
         planet.setPlanetLvl(level[7]);
-        planet.setMoney(points);
+        if (testing){
+            planet.setMoney(points);
+        }
+
         myReader.close();
         System.out.println("FINISHED LOADING LEVELS FROM FILE");
     }

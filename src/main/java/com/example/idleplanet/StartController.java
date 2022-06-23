@@ -60,7 +60,7 @@ public class StartController {
         mAnimation.closeInfo(infoContainer);
         p.autoMoney();
         Autoclick1();
-        fileHandling.loadFromFile(p);
+        fileHandling.loadFromFile(p,true);
     }
 
     public void startGame(ActionEvent event) throws IOException {
@@ -206,7 +206,7 @@ public class StartController {
     }
 
     public void LoadFile() throws FileNotFoundException {
-        fileHandling.loadFromFile(p);
+        fileHandling.loadFromFile(p,false);
     }
 
     public void autoSave(){
