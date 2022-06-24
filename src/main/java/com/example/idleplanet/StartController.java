@@ -65,7 +65,7 @@ public class StartController {
 
     FileHandling fileHandling = new FileHandling();
 
-    boolean alreadySaving;
+    boolean alreadySaving = false;
 
     private static final DecimalFormat df = new DecimalFormat("0");
 
@@ -212,8 +212,8 @@ public class StartController {
     public void SavetoFile() throws IOException {
         fileHandling.saveToFile(p);
 
-        if (alreadySaving){
-            alreadySaving = false;
+        if (!alreadySaving){
+            alreadySaving = true;
             autoSave();
         }
     }

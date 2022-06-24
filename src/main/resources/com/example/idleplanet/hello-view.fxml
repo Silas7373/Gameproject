@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="basePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.idleplanet.StartController">
+<AnchorPane fx:id="basePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.idleplanet.StartController">
     <children>
         <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -79,7 +79,7 @@
                            <font>
                               <Font name="Monospaced Regular" size="13.0" />
                            </font></Button>
-                        <Button fx:id="b4" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#buyUpFactory" onMouseEntered="#btn3" onMouseExited="#closeInfo" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="Factory">
+                        <Button fx:id="b4" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#buyUpFactory" onMouseEntered="#btn4" onMouseExited="#closeInfo" prefHeight="35.0" prefWidth="165.6" stylesheets="@buttonSlider.css" text="Factory">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

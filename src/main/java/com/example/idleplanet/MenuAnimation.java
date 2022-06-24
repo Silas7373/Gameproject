@@ -49,28 +49,28 @@ public class MenuAnimation {
     public void openInfo(int b, Label infoText, VBox infoContainer){
         if (b == 1)
         {
-            infoText.setText(1 *Math.pow(StartController.instance.p.getMorecpsUp() + 1,3) * (1.2*StartController.instance.p.planetLvl)  + "\nMit diesem Upgrade\nwird zählt dein Klick\n um eines mehr.");
+            infoText.setText(1 *Math.pow(StartController.instance.p.getMorecpsUp() + 1,3) *1.2 + "\nMit diesem Upgrade\nwird zählt dein Klick\n um eines mehr.");
         }
         else if (b == 2)
         {
-            infoText.setText(1 *Math.pow(StartController.instance.p.getMoreAstronautBaseUp() + 1,3) * (1.2*StartController.instance.p.planetLvl) + "Mit diesem Upgrade\n wird für dich\n automatisch geklickt");
+            infoText.setText(10 *Math.pow(StartController.instance.p.getMoreAstronautBaseUp() + 1,3) *1.2+ "\nMit diesem Upgrade\n wird für dich\n automatisch geklickt");
         }
         else if (b == 3)
         {
-            infoText.setText(1 *Math.pow(StartController.instance.p.getMoreMineralMineUp() + 1,3) * (1.2*StartController.instance.p.planetLvl) + "Mit diesem Upgrade\n bekommest du\n automatisch mehr");
+            infoText.setText(100 *Math.pow(StartController.instance.p.getMoreMineralMineUp() + 1,3) * 1.2 + "\nMit diesem Upgrade\n bekommest du\n automatisch mehr");
         }
         else if (b == 4)
         {
-            infoText.setText(1 *Math.pow(StartController.instance.p.getMoreFactoryUp() + 1,3) * (1.2*StartController.instance.p.planetLvl) + "Wenn du dieses \nUpgrade kaufst, \nbekommst du einen \nneuen Planeten.");
+            infoText.setText(1000 *Math.pow(StartController.instance.p.getMoreFactoryUp() + 1,3) * 1.2 + "\nWenn du dieses \nUpgrade kaufst, \nbekommst du einen \nneuen Planeten.");
         }
         else if (b == 5){
-            infoText.setText(1 *Math.pow(StartController.instance.p.getMoreLaboratoryUp() + 1,3) * (1.2*StartController.instance.p.planetLvl) + "Mit diesem Upgrade\nbekommest du\n automatisch noch\n mehr");
+            infoText.setText(10000 *Math.pow(StartController.instance.p.getMoreLaboratoryUp() + 1,3) * 1.2 + "\nMit diesem Upgrade\nbekommest du\n automatisch noch\n mehr");
         }
         else if (b == 6){
-            infoText.setText(1 *Math.pow(StartController.instance.p.getMoreBankUp() + 1,3) * (1.2*StartController.instance.p.planetLvl) + "Mit diesem Upgrade\nbekommest du\n automatisch viel\n mehr");
+            infoText.setText(100000 *Math.pow(StartController.instance.p.getMoreBankUp() + 1,3) * 1.2 + "\nMit diesem Upgrade\nbekommest du\n automatisch viel\n mehr");
         }
         else if (b == 7){
-            infoText.setText(1 *Math.pow(StartController.instance.p.getMoreTeleporterUp() + 1,3) * (1.2*StartController.instance.p.planetLvl) + "Mit diesem Upgrade\nbekommest du\n automatisch sehr\n viel mehr");
+            infoText.setText(1000000 *Math.pow(StartController.instance.p.getMoreTeleporterUp() + 1,3) * 1.2 + "\nMit diesem Upgrade\nbekommest du\n automatisch sehr\n viel mehr");
 
         } else if (b == 8) {
             infoText.setText("Mit Safe startest \ndu das \nautomatische sichern");

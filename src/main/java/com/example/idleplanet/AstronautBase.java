@@ -3,7 +3,7 @@ public class AstronautBase extends Upgrade{
     AstronautBase(int setUpgradeLvl, int planetLvl){
         this.upgradeLvl = setUpgradeLvl;
         this.planetLvl = planetLvl;
-        cost = 1 *Math.pow(upgradeLvl,3) * 1.2*(planetLvl);
-        plusMoney = 0.001;
+        cost = 10 *Math.pow(upgradeLvl,3) * 1.2;
+        plusMoney = 0.001*((double) planetLvl/5);
     }
 }
